@@ -2,13 +2,13 @@
 
 void ft_putnstr_fd(char *str, int fd, size_t len)
 {
-	if(!str) 
+	if (!str)
 		return;
-	while(*str && len--)
+	while (*str && len--)
 		ft_putchar_fd(*str++, fd);
 }
 
-void	ft_putnstr(char *str, size_t len)
+void ft_putnstr(char *str, size_t len)
 {
 	ft_putnstr_fd(str, 1, len);
 }

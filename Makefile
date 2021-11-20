@@ -18,13 +18,6 @@ SRCS =	./srcs/ft_strnstr.c \
 		./srcs/ft_is_charset.c \
 		./srcs/ft_toupper.c \
 		./srcs/ft_split.c \
-		./srcs/ft_printf/ft_printf_bonus.c \
-		./srcs/ft_printf/tools_bonus.c \
-		./srcs/ft_printf/parse2_bonus.c \
-		./srcs/ft_printf/tools2_bonus.c \
-		./srcs/ft_printf/print_arg_bonus.c \
-		./srcs/ft_printf/print_flag_bonus.c \
-		./srcs/ft_printf/parse_bonus.c \
 		./srcs/ft_strrchr.c \
 		./srcs/ft_isalpha.c \
 		./srcs/ft_memchr.c \
@@ -38,14 +31,32 @@ SRCS =	./srcs/ft_strnstr.c \
 		./srcs/ft_memmove.c \
 		./srcs/ft_strlcat.c \
 		./srcs/ft_calloc.c \
-		./srcs/get_next_line/get_next_line_utils.c \
-		./srcs/get_next_line/get_next_line.c \
 		./srcs/ft_strdup.c \
 		./srcs/ft_atoi.c \
 		./srcs/ft_isalnum.c \
 		./srcs/ft_putnstr.c \
 		./srcs/ft_itoa.c \
-		./srcs/ft_tolower.c
+		./srcs/ft_tolower.c \
+		./srcs/ft_min.c \
+		./srcs/ft_max.c \
+		./srcs/ft_abs.c \
+		./srcs/ft_striteri.c
+
+# GNL FILES
+
+SRCS += ./srcs/get_next_line/get_next_line_utils.c \
+		./srcs/get_next_line/get_next_line.c \
+
+# FT_PRINTF FILES
+
+SRCS += ./srcs/ft_printf/ft_printf.c \
+		./srcs/ft_printf/parse.c \
+		./srcs/ft_printf/parse2.c \
+		./srcs/ft_printf/print_arg.c \
+		./srcs/ft_printf/print_flag.c \
+		./srcs/ft_printf/tools.c \
+		./srcs/ft_printf/tools2.c \
+
 
 OBJS = ${SRCS:.c=.o}
 SRCSBONUS =	srcs/bonus/ft_lstnew.c \
@@ -85,20 +96,20 @@ all: ${NAME}
 .c.o:
 			@${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${INCS}
 
-$(NAME): $(OBJS)
-			@ echo "${_GREEN}libft.a compiled${_END}"
+$(NAME): $(OBJS) 
 			@ar -rcs $(NAME) $(OBJS)
-
+			@ echo "${_GREEN}libft.a compiled${_END}"
 
 bonus: ${OBJS} ${OBJSBONUS}
 			@ar -rcs ${NAME} ${OBJS} ${OBJSBONUS}
+			@ echo "${_GREEN}libft.a compiled + bonus${_END}"
 
 clean:
-			@ echo "${_RED}Deleting libft's objects${_END}"
+			@ echo "${_RED}Deleting libft's objects...${_END}"
 			@${RM} ${OBJS} ${OBJSBONUS}
 
 fclean: clean
-			@ echo "${_RED}Deleting libft's library${_END}"
+			@ echo "${_RED}Deleting libft's library...${_END}"
 			@${RM} ${NAME}
 
 re: fclean all
