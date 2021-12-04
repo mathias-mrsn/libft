@@ -1,13 +1,4 @@
-SRCS =	./srcs/string/get_next_line/get_next_line_utils.c \
-		./srcs/string/get_next_line/get_next_line.c \
-		./srcs/print/ft_printf/print_flag.c \
-		./srcs/print/ft_printf/ft_printf.c \
-		./srcs/print/ft_printf/print_arg.c \
-		./srcs/print/ft_printf/parse2.c \
-		./srcs/print/ft_printf/tools2.c \
-		./srcs/print/ft_printf/parse.c \
-		./srcs/print/ft_printf/tools.c \
-		./srcs/stdlib/ft_nbrlen_base.c \
+SRCS =	./srcs/stdlib/ft_nbrlen_base.c \
 		./srcs/char/ft_isdigit.c  \
 		./srcs/list/ft_lstadd_front.c \
 		./srcs/list/ft_lstadd_back.c \
@@ -66,6 +57,21 @@ SRCS =	./srcs/string/get_next_line/get_next_line_utils.c \
 		./srcs/math/ft_max.c \
 		./srcs/math/ft_min.c \
 		./srcs/mem/ft_free.c
+
+# GNL
+
+SRCS += ./srcs/string/gnl/get_next_line_utils.c \
+		./srcs/string/gnl/get_next_line.c \
+
+# FT_PRINTF
+
+SRCS += ./srcs/print/printf/print_flag.c \
+		./srcs/print/printf/ft_printf.c \
+		./srcs/print/printf/print_arg.c \
+		./srcs/print/printf/parse2.c \
+		./srcs/print/printf/tools2.c \
+		./srcs/print/printf/parse.c \
+		./srcs/print/printf/tools.c \
 
 OBJS = ${SRCS:.c=.o}
 
