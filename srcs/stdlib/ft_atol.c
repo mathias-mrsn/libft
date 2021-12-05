@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/05 11:56:04 by mamaurai          #+#    #+#             */
+/*   Updated: 2021/12/05 11:56:05 by mamaurai         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-long __atol(const char *str)
+long	__atol(const char *str)
 {
-	int i;
-	int neg;
-	long res;
+	int		i;
+	int		neg;
+	long	res;
 
 	res = 0;
 	neg = 1;

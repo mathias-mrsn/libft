@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_labs.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 12:00:22 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 12:00:23 by mamaurai         ###   ########.fr       */
+/*   Created: 2021/12/05 13:11:02 by mamaurai          #+#    #+#             */
+/*   Updated: 2021/12/05 13:11:55 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	__strlen(const char *str)
+long	__labs(long x)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	if (x < 0)
+		return (x * -1);
+	return (x);
 }

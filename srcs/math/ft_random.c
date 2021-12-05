@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_random.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/05 11:42:51 by mamaurai          #+#    #+#             */
+/*   Updated: 2021/12/05 11:43:18 by mamaurai         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-long __random(int len_max)
+long	__random(int len_max)
 {
-	int fd;
-	int i;
-	long res;
-	char str[7];
+	int		fd;
+	int		i;
+	long	res;
+	char	str[7];
 
 	res = 0;
 	fd = open("/dev/urandom", O_RDONLY);

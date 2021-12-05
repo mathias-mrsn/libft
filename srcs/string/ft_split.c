@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/05 11:57:46 by mamaurai          #+#    #+#             */
+/*   Updated: 2021/12/05 11:57:47 by mamaurai         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	__is_c__(char s, char c)
 {
 	if (s == c)
-			return (1);
+		return (1);
 	return (0);
 }
 
@@ -43,7 +55,7 @@ char	**__split(char const *str, char c)
 	int		i;
 	int		j;
 
-	if(!str)
+	if (!str)
 		return (NULL);
 	strs = (char **)malloc(sizeof(char *) * (ft_count_word(str, c) + 1));
 	if (!strs)

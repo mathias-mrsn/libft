@@ -19,7 +19,7 @@ SRCS =	./srcs/stdlib/ft_nbrlen_base.c \
 		./srcs/string/ft_strrchr.c \
 		./srcs/string/ft_strtrim.c \
 		./srcs/list/ft_lstclear.c \
-		./srcs/print/ft_putnstr.c \
+		./srcs/print/ft_putnstr_fd.c \
 		./srcs/stdlib/ft_nbrlen.c \
 		./srcs/string/ft_strcat.c \
 		./srcs/string/ft_strchr.c \
@@ -56,7 +56,9 @@ SRCS =	./srcs/stdlib/ft_nbrlen_base.c \
 		./srcs/math/ft_abs.c \
 		./srcs/math/ft_max.c \
 		./srcs/math/ft_min.c \
-		./srcs/mem/ft_free.c
+		./srcs/mem/ft_free.c \
+		./srcs/math/ft_labs.c \
+		./srcs/math/ft_llabs.c
 
 # GNL
 

@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/05 11:56:17 by mamaurai          #+#    #+#             */
+/*   Updated: 2021/12/05 11:56:18 by mamaurai         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int64_t __atoll(const char *str)
+int64_t	__atoll(const char *str)
 {
-	int i;
-	int neg;
-	int64_t res;
+	int		i;
+	int		neg;
+	int64_t	res;
 
 	res = 0;
 	neg = 1;
