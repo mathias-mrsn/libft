@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 10:53:58 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 12:03:47 by mamaurai         ###   ########.fr       */
+/*   Updated: 2021/12/05 13:55:35 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_argument
 	char		*base_used;
 }				t_argument;
 
-int		ft_printf(const char *str, ...);
+int		__printf(const char *str, ...);
 
 /* PARSING */
 

@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 12:48:12 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/04 17:39:27 by mamaurai         ###   ########.fr       */
+/*   Updated: 2021/12/05 13:56:02 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static void	__ft_free__(t_file **mem, int fd)
 	}
 }
 
-char	*get_next_line(int fd)
+char	*__gnl(int fd)
 {
 	char			*buffer;
 	static t_file	*mem;
