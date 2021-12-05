@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   function.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
+/*   Updated: 2021/12/05 14:25:06 by mamaurai         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FUNCTION_H
 # define FUNCTION_H
 
@@ -89,6 +101,4 @@ char	*__strmapi(char const *s, char (*f)(unsigned int, char));
 char	*__substr(char const *s, unsigned int start, size_t len);
 char	*__strnstr(const char *haystack, const char *needle, size_t len);
 
-
 #endif
-
