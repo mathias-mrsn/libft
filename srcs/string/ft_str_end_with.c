@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_malloc.c                                        :+:      :+:    :+:   */
+/*   ft_str_end_with.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:48:41 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/06 10:39:51 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/01/06 10:51:13 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/01/06 14:23:24 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-void	*__malloc(size_t count)
+int
+	__str_end_with(char *str, char *to_find)
 {
-	static t_list	*lst = NULL;
-	void			*ret;
+	size_t	index;
+	size_t	index2;
 
-	ret = NULL;
-	if (count)
+	if (!str || !to_find)
+		return (__ERROR);
+	index = __strlen(str);
+	index2 = __strlen(to_find);
+	while(index && index2 && str[index] == to_find[index2])
 	{
-		ret = __calloc(count, 1);
-		__lstadd_front(&lst, __lstnew(ret));
+		index--;
+		index2--;
 	}
-	if (0 == count)
-		return (&lst);
-	return (ret);
+	if (index2 == 0 && str[0] == str[0])
+		return (__SUCCESS);
+	return (__FAILURE);
 }

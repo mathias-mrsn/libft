@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 14:25:06 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/06 14:08:47 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ t_list	*__lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 void	__clean(void);
 int8_t	__free(void	*addr);
+void	__freetab(char **tab);
 void	__bzero(void *b, size_t len);
 void	*__calloc(size_t count, size_t size);
-void	*__malloc(size_t count, size_t size);
+void	*__malloc(size_t count);
 void	*__memset(void *b, int c, size_t len);
 void	*__memchr(const void *s, int c, size_t n);
 void	*__memcpy(void *dst, const void *src, size_t n);
@@ -90,9 +91,11 @@ size_t	__strlen(const char *str);
 char	*__strchr(const char *s, int c);
 char	*__strrchr(const char *s, int c);
 char	**__split(char const *str, char c);
+int		__str_is_in(char *str, char *to_find);
 char	*__strcat(const char *s1, const char *s2);
 char	*__strjoin(char const *s1, char const *s2);
 char	*__strtrim(const char *s1, const char *set);
+int		__str_end_with(char *str, char *to_find);
 int		__strncmp(const char *s1, const char *s2, size_t n);
 void	__striteri(char *s, void (*f)(unsigned int, char*));
 size_t	__strlcat(char *dest, const char *src, size_t size);

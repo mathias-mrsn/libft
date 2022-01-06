@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:48:10 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 11:51:24 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/06 14:09:55 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int8_t	__free(void	*addr)
 	t_list	*prev;
 	t_list	**head;
 
-	head = __malloc(0, 0);
+	head = __malloc(0);
 	current = *(head);
 	prev = NULL;
 	next = current->next;

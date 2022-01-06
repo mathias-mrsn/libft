@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_malloc.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_in.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:48:41 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/06 10:39:51 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/01/06 10:42:35 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/01/06 10:48:36 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*__malloc(size_t count)
+int
+	__str_is_in(char *str, char *to_find)
 {
-	static t_list	*lst = NULL;
-	void			*ret;
+	char *res;
 
-	ret = NULL;
-	if (count)
-	{
-		ret = __calloc(count, 1);
-		__lstadd_front(&lst, __lstnew(ret));
-	}
-	if (0 == count)
-		return (&lst);
-	return (ret);
+	res = __strnstr(str, to_find, SIZE_T_MAX);
+	if (!res)
+		return (__FAILURE);
+	return (__SUCCESS);
 }

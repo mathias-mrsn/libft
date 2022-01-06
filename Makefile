@@ -26,6 +26,8 @@ SRCS =	./srcs/stdlib/ft_nbrlen_base.c \
 		./srcs/string/ft_strdup.c \
 		./srcs/string/ft_strlen.c \
 		./srcs/string/ft_substr.c \
+		./srcs/string/ft_str_start_with.c \
+		./srcs/string/ft_str_end_with.c \
 		./srcs/char/ft_isalnum.c \
 		./srcs/char/ft_isalpha.c \
 		./srcs/char/ft_isascii.c \
@@ -58,7 +60,8 @@ SRCS =	./srcs/stdlib/ft_nbrlen_base.c \
 		./srcs/math/ft_min.c \
 		./srcs/mem/ft_free.c \
 		./srcs/math/ft_labs.c \
-		./srcs/math/ft_llabs.c
+		./srcs/math/ft_llabs.c \
+		./srcs/mem/ft_freetab.c \
 
 # GNL
 
@@ -102,17 +105,20 @@ all: ${NAME}
 
 .c.o:
 			@${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${INCS}
+			@printf "%-15s ${_YELLOW}${_BOLD}$<${_END}...\n" "Compiling"
 
-$(NAME): $(OBJS) 
+$(NAME): $(OBJS)
+			@printf "%-15s ${_CYAN}${_BOLD}${NAME}${_END}...\n" "Compiling"
 			@ar -rcs $(NAME) $(OBJS)
-			@ echo "${_GREEN}libft.a compiled${_END}"
+			@printf "\n${_GREEN}${_BOLD}Compilation done !${_END}\n"
+
 
 clean:
-			@ echo "${_RED}Deleting libft's objects...${_END}"
+			@printf "%-15s ${_RED}${_BOLD}binary files${_END}...\n" "Deleting"
 			@${RM} ${OBJS} ${OBJSBONUS}
 
 fclean: clean
-			@ echo "${_RED}Deleting libft's library...${_END}"
+			@printf "%-15s ${_RED}${_BOLD}libft librairy${_END}...\n" "Deleting"
 			@${RM} ${NAME}
 
 re: fclean all
