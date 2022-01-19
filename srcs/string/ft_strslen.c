@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_in.c                                     :+:      :+:    :+:   */
+/*   ft_strslen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 10:42:35 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/19 14:56:39 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/01/18 10:41:13 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/01/18 10:44:52 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int
-	__str_is_in(char *str, char *to_find)
+size_t
+	__strslen(char **strs)
 {
-	char	*res;
+	size_t	len;
 
-	res = __strnstr(str, to_find, SIZE_T_MAX);
-	if (!res)
-		return (__FAILURE);
-	return (__SUCCESS);
+	len = 0;
+	if (NULL == strs || !*strs)
+		return (0);
+	while (strs[len])
+		len += 1;
+	return (len);
 }

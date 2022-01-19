@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:03:25 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 14:24:34 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/18 11:09:03 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 
 # ifndef __STDIN
 #  define __STDIN 	0
+# endif
+
+# ifndef __STDERR
+#  define __STDERR 	2
+# endif
+
+# ifndef __STDOUT
+#  define __STDOUT 	1
 # endif
 
 # ifndef __FAILURE

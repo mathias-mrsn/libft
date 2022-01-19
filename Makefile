@@ -38,7 +38,7 @@ SRCS =	./srcs/stdlib/ft_nbrlen_base.c \
 		./srcs/list/ft_lstlast.c \
 		./srcs/list/ft_lstsize.c \
 		./srcs/stdlib/ft_atoll.c \
-		./srcs/string/ft_split.c \
+		./srcs/string/ft_splitcs.c \
 		./srcs/list/ft_lstmap.c \
 		./srcs/list/ft_lstnew.c \
 		./srcs/math/ft_random.c \
@@ -61,7 +61,18 @@ SRCS =	./srcs/stdlib/ft_nbrlen_base.c \
 		./srcs/mem/ft_free.c \
 		./srcs/math/ft_labs.c \
 		./srcs/math/ft_llabs.c \
-		./srcs/mem/ft_freetab.c \
+		./srcs/mem/ft_strsfree.c \
+		./srcs/string/ft_strslen.c \
+		./srcs/string/ft_stridx.c \
+		./srcs/string/ft_strsidx.c \
+		./srcs/print/ft_strerr.c \
+		./srcs/string/ft_split.c \
+		
+
+# CONDITIONS
+
+SRCS += ./srcs/conditions/ft_trn_int.c \
+		./srcs/conditions/ft_trn_char.c \
 
 # GNL
 
@@ -108,7 +119,7 @@ all: ${NAME}
 			@printf "%-15s ${_YELLOW}${_BOLD}$<${_END}...\n" "Compiling"
 
 $(NAME): $(OBJS)
-			@printf "%-15s ${_CYAN}${_BOLD}${NAME}${_END}...\n" "Compiling"
+			@printf "%-15s ${_PURPLE}${_BOLD}${NAME}${_END}...\n" "Compiling"
 			@ar -rcs $(NAME) $(OBJS)
 			@printf "\n${_GREEN}${_BOLD}Compilation done !${_END}\n"
 

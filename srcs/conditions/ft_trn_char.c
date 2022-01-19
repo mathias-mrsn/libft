@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_in.c                                     :+:      :+:    :+:   */
+/*   ft_trn_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 10:42:35 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/19 14:56:39 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/01/19 13:08:57 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/01/19 14:54:22 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int
-	__str_is_in(char *str, char *to_find)
+int8_t
+	__trn8(int condition, int8_t true, int8_t false)
 {
-	char	*res;
+	if (__SUCCESS == condition)
+		return (true);
+	else
+		return (false);
+}
 
-	res = __strnstr(str, to_find, SIZE_T_MAX);
-	if (!res)
-		return (__FAILURE);
-	return (__SUCCESS);
+uint8_t
+	__trnu8(int condition, uint8_t true, uint8_t false)
+{
+	if (__SUCCESS == condition)
+		return (true);
+	else
+		return (false);
 }

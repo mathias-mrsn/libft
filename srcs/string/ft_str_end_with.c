@@ -6,9 +6,10 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 10:51:13 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/06 14:23:24 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/19 14:57:08 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int
@@ -21,7 +22,7 @@ int
 		return (__ERROR);
 	index = __strlen(str);
 	index2 = __strlen(to_find);
-	while(index && index2 && str[index] == to_find[index2])
+	while (index && index2 && str[index] == to_find[index2])
 	{
 		index--;
 		index2--;

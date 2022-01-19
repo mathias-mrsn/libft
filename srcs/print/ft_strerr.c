@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_in.c                                     :+:      :+:    :+:   */
+/*   ft_strerr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 10:42:35 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/19 14:56:39 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/01/18 11:07:07 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/01/18 11:10:10 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int
-	__str_is_in(char *str, char *to_find)
+void
+	__strerr(char *err_msg)
 {
-	char	*res;
-
-	res = __strnstr(str, to_find, SIZE_T_MAX);
-	if (!res)
-		return (__FAILURE);
-	return (__SUCCESS);
+	__putstr("Error:\n", STDERR_FILENO);
+	__putstr(err_msg, STDERR_FILENO);
 }
