@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   typedef.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 12:07:03 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/19 15:02:22 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/01/19 15:00:00 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/01/20 09:54:43 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef TYPEDEF_H
+# define TYPEDEF_H
 
-# include <stddef.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <limits.h>
-# include <fcntl.h>
-
-# include "ft_printf.h"
-# include "get_next_line.h"
-# include "color.h"
-# include "define.h"
-# include "function.h"
-# include "typedef.h"
+typedef uint8_t		t_boolean_f;
+typedef int8_t		t_boolean_err_f;
+typedef uint64_t	t_uvalue_f;
+typedef int64_t		t_value_f;
 
 #endif
