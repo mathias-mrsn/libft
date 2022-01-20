@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/20 09:56:45 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/20 11:17:37 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,12 +114,14 @@ char		*__strcat(const char *s1, const char *s2);
 char		*__strtrim(const char *s1, const char *set);
 char		*__strjoin(char const *s1, char const *s2);
 int			__strncmp(const char *s1, const char *s2, size_t n);
+int			__str_start_with(char *str, char *to_find);
 int			__str_end_with(char *str, char *to_find);
 void		__striteri(char *s, void (*f)(unsigned int, char*));
 size_t		__strlcat(char *dest, const char *src, size_t size);
 int64_t		__strsidx(char **strs, char *str);
 int64_t		__stridx(char *str, char *charset);
 size_t		__strlcpy(char *dest, const char *src, size_t size);
+size_t		__strlen_except(char *str, char *charset);
 char		*__strmapi(char const *s, char (*f)(unsigned int, char));
 char		*__substr(char const *s, unsigned int start, size_t len);
 char		*__strnstr(const char *haystack, const char *needle, size_t len);
