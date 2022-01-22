@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/22 15:46:43 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/22 16:46:20 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ int			__str_is_in(char *str, char *to_find);
 size_t		__strslen(char **strs);
 char		*__strcat(const char *s1, const char *s2);
 char		*__strtrim(const char *s1, const char *set);
+char		*__strldup(char *str, size_t len);
 char		*__strjoin(char const *s1, char const *s2);
 int			__strncmp(const char *s1, const char *s2, size_t n);
 int			__str_start_with(char *str, char *to_find);

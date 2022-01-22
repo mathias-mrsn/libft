@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:40:42 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 11:41:08 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/22 16:50:44 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	__is_charset(char c, char *set)
 	while (*set)
 	{
 		if (c == *set)
-			return (1);
+			return (__TRUE);
 		set++;
 	}
-	return (0);
+	return (__FALSE);
 }
