@@ -6,20 +6,20 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:48:10 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/06 14:09:55 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/22 15:46:23 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int8_t	__free(void	*addr)
+int8_t	__free(void	*addr, size_t list_nbr)
 {
 	t_list	*next;
 	t_list	*current;
 	t_list	*prev;
 	t_list	**head;
 
-	head = __malloc(0);
+	head = __malloc(0, list_nbr);
 	current = *(head);
 	prev = NULL;
 	next = current->next;

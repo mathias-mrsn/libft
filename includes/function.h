@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/20 11:17:37 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/22 15:46:43 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,14 @@ t_list		*__lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 **	MEMORY
 */
 
-void		__clean(void);
-int8_t		__free(void	*addr);
+void		__clean(size_t list_nbr);
+int8_t		__free(void	*addr, size_t list_nbr);
 void		__strsfree(char **tab);
 void		__bzero(void *b, size_t len);
 void		*__calloc(size_t count, size_t size);
-void		*__malloc(size_t count);
+void		*__malloc(size_t count, size_t list_nbr);
 void		*__memset(void *b, int c, size_t len);
+void		__clean_all(void);
 void		*__memchr(const void *s, int c, size_t n);
 void		*__memcpy(void *dst, const void *src, size_t n);
 int			__memcmp(const void *s1, const void *s2, size_t n);

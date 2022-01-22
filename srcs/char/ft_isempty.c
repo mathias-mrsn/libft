@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 09:54:57 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/20 09:56:24 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/22 13:19:32 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ int
 	__isempty(int c)
 {
 	if ((c >= 9 && c <= 13) || c == ' ')
-		return (__SUCCESS);
-	return (__FAILURE);
+		return (__TRUE);
+	return (__FALSE);
 }

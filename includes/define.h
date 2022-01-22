@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:03:25 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/18 11:09:03 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/22 15:23:41 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@
 
 # ifndef __FALSE
 #  define __FALSE 	0
+# endif
+
+# ifndef MALLOC_LIST_SIZE
+#  define MALLOC_LIST_SIZE 128
 # endif
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 12:07:03 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/19 15:02:22 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/22 13:15:17 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <string.h>
 # include <limits.h>
 # include <fcntl.h>
+# include <stdint.h>
 
 # include "ft_printf.h"
 # include "get_next_line.h"
