@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/22 16:46:20 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:12:24 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void		__putstr(char *s, int fd);
 void		__putendl(char *s, int fd);
 void		__putaddr(void *addr, int fd);
 void		__putnstr(char *str, int fd, size_t len);
-void		__strerr(char *err_msg);
+void		__puterr(char *err_msg);
 
 /*
 **	STDLIB
