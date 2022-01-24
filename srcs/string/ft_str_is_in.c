@@ -17,7 +17,7 @@ int
 {
 	char	*res;
 
-	res = __strnstr(str, to_find, SIZE_T_MAX);
+	res = __strnstr(str, to_find, -1);
 	if (!res)
 		return (__FAILURE);
 	return (__SUCCESS);

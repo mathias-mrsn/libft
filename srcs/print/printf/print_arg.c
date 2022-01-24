@@ -27,10 +27,6 @@ static void	__ft_print_addr__(unsigned long addr, int first, t_options *options)
 	base = "0123456789abcdef";
 	if (first == 0)
 		ft_putstr("0x", -1, options);
-	if (addr < 0)
-	{
-		return (__ft_print_addr__(addr * -1, ++first, options));
-	}
 	if (addr >= 16)
 	{
 		__ft_print_addr__(addr / 16, ++first, options);

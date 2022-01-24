@@ -21,13 +21,12 @@ OBJ_DIR = objs
 
 OBJS = ${SRCS:%.c=%.o}
 
+# Colors
+ifeq (${SYSTEM}, Darwin)
 _END=$'\x1b[0m
 _BOLD=$'\x1b[1m
 _UNDER=$'\x1b[4m
 _REV=$'\x1b[7m
-
-# Colors
-
 _GREY=$'\x1b[30m
 _RED=$'\x1b[31m
 _GREEN=$'\x1b[32m
@@ -36,6 +35,7 @@ _BLUE=$'\x1b[34m
 _PURPLE=$'\x1b[35m
 _CYAN=$'\x1b[36m
 _WHITE=$'\x1b[37m
+endif
 
 all: ${NAME}
 
