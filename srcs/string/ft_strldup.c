@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 16:38:18 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/22 17:02:01 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/25 16:35:34 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char
 	*__strldup(char *str, size_t len)
 {
 	size_t	size;
-	char 	*newstr;
+	char	*newstr;
 
 	size = __trnst((len < __strlen(str)), len, __strlen(str));
 	newstr = (char *)__malloc(sizeof(char) * (size + 1), 0);

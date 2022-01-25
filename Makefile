@@ -6,7 +6,7 @@
 #    By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 10:02:52 by mamaurai          #+#    #+#              #
-#    Updated: 2022/01/20 11:08:53 by mamaurai         ###   ########.fr        #
+#    Updated: 2022/01/25 16:15:15 by mamaurai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 INCS = includes
 OBJ_DIR = objs
+SYSTEM = ${shell uname}
 
 OBJS = ${SRCS:%.c=%.o}
 
@@ -35,6 +36,18 @@ _BLUE=$'\x1b[34m
 _PURPLE=$'\x1b[35m
 _CYAN=$'\x1b[36m
 _WHITE=$'\x1b[37m
+endif
+
+ifeq (${SYSTEM}, Linux)
+_GREY=	$'\033[30m
+_RED=	$'\033[31m
+_GREEN=	$'\033[32m
+_YELLOW=$'\033[33m
+_BLUE=	$'\033[34m
+_PURPLE=$'\033[35m
+_CYAN=	$'\033[36m
+_WHITE=	$'\033[37m
+_END= $'\033[37m
 endif
 
 all: ${NAME}

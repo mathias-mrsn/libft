@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/24 17:12:24 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/25 16:31:09 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void		*__calloc(size_t count, size_t size);
 void		*__malloc(size_t count, size_t list_nbr);
 void		*__memset(void *b, int c, size_t len);
 void		__clean_all(void);
+void		__memdel(void **p);
 void		*__memchr(const void *s, int c, size_t n);
 void		*__memcpy(void *dst, const void *src, size_t n);
 int			__memcmp(const void *s1, const void *s2, size_t n);
@@ -116,7 +117,9 @@ char		*__strtrim(const char *s1, const char *set);
 char		*__strldup(char *str, size_t len);
 char		*__strjoin(char const *s1, char const *s2);
 int			__strncmp(const char *s1, const char *s2, size_t n);
+t_boolean	__strs_add_back(char ***strs, char *str);
 int			__str_start_with(char *str, char *to_find);
+t_boolean	__strs_add_front(char ***strs, char *str);
 int			__str_end_with(char *str, char *to_find);
 void		__striteri(char *s, void (*f)(unsigned int, char*));
 size_t		__strlcat(char *dest, const char *src, size_t size);

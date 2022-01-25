@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puterr.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 11:07:07 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/25 10:22:15 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/01/25 11:53:45 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/01/25 16:34:53 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 void
-	__puterr(char *err_msg)
+	__memdel(void **p)
 {
-	__putstr("Error:\n", STDERR_FILENO);
-	__putstr(err_msg, STDERR_FILENO);
+	if (NULL != p && NULL != (*p))
+	{
+		free((*p));
+		*p = NULL;
+	}
 }

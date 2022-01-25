@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puterr.c                                        :+:      :+:    :+:   */
+/*   ft_strs_add_front.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 11:07:07 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/25 10:22:15 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/01/25 16:29:21 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/01/25 17:11:53 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void
-	__puterr(char *err_msg)
+t_boolean
+	__strs_add_front(char ***strs, char *str)
 {
-	__putstr("Error:\n", STDERR_FILENO);
-	__putstr(err_msg, STDERR_FILENO);
+	const char		**old = (const char **)(*strs);
+	const size_t	size = __strslen((char **)old);
+	char			**new;
+
+	new = (char **)malloc(sizeof(char *) * (size + 2));
+	if (NULL == new)
+		return (__FAILURE);
+	new[0] = str;
+	__memmove(new, old, size * 8);
+	new[size + 1] = NULL;
+	free((*strs));
+	return (__SUCCESS);
 }

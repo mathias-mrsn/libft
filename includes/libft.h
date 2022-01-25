@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 12:07:03 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/22 13:15:17 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/25 16:32:40 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include "get_next_line.h"
 # include "color.h"
 # include "define.h"
-# include "function.h"
 # include "typedef.h"
+# include "function.h"
 
 #endif
