@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 16:29:21 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/25 17:11:53 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/01/28 10:55:48 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ t_boolean
 	if (NULL == new)
 		return (__FAILURE);
 	new[0] = str;
-	__memmove(new, old, size * 8);
+	__memmove(&new[1], old, size * 8);
 	new[size + 1] = NULL;
 	free((*strs));
+	(*strs) = new;
 	return (__SUCCESS);
 }
