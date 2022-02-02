@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/28 21:53:09 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/02 18:57:02 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,14 @@ long		__random(int len_max);
 **	CHAR
 */
 
-int			__isacii(int c);
+int			__isascii(int c);
 int			__isalnum(int c);
 int			__isalpha(int c);
 int			__isdigit(int c);
 int			__isprint(int c);
 int			__tolower(int c);
+int			__islower(int c);
+int			__isupper(int c);
 int			__toupper(int c);
 int			__isempty(int c);
 int			__is_charset(char c, char *set);
@@ -77,6 +79,8 @@ int			__memcmp(const void *s1, const void *s2, size_t n);
 void		*__memmove(void *dst, const void *src, size_t len);
 void		*__memccpy(void *dst, const void *src, int c, size_t n);
 
+void		*__mcalloc(size_t count, size_t size, size_t list_stack);
+
 /*
 **	PRINT
 */
@@ -102,6 +106,8 @@ long		__atol(const char *str);
 int64_t		__atoll(const char *str);
 int			__nbrlen_base(int64_t nbr, char *base);
 
+char		*__mitoa(int64_t n, size_t list_stack);
+
 /*
 **	STRING
 */
@@ -114,12 +120,11 @@ char		**__splitcs(char *str, char *charset);
 char		**__split(const char *str, char c);
 int			__str_is_in(char *str, char *to_find);
 int			__strcmp(const char *s1, const char *s2);
-char		*__strcat(const char *s1, const char *s2);
 char		*__strtrim(const char *s1, const char *set);
 char		*__strldup(char *str, size_t len);
 char		*__strjoin(char const *s1, char const *s2);
 int			__strncmp(const char *s1, const char *s2, size_t n);
-size_t		__str_count_cs(char *str, char *charset);
+size_t		__str_count_cs(const char *str, const char *charset);
 int			__str_start_with(char *str, char *to_find);
 int			__str_end_with(char *str, char *to_find);
 void		__striteri(char *s, void (*f)(unsigned int, char*));
@@ -128,8 +133,22 @@ int64_t		__stridx(char *str, char *charset);
 size_t		__strlcpy(char *dest, const char *src, size_t size);
 size_t		__strlen_except(char *str, char *charset);
 char		*__strmapi(char const *s, char (*f)(unsigned int, char));
+char		*__str_rm_cs(const char *str, const char *charset);
+char		*__str_rm(const char *str, const char c);
 char		*__substr(char const *s, unsigned int start, size_t len);
 char		*__strnstr(const char *haystack, const char *needle, size_t len);
+
+char		**__msplitcs(char *str, char *charset, size_t list_stack);
+char		**__msplit(const char *str, char c, size_t list_stack);
+char		*__mstrdup(const char *src, size_t list_stack);
+char		*__mstrjoin(char const *s1, char const *s2, size_t list_stack);
+char		*__mstrldup(char *str, size_t len, size_t list_stack);
+char		*__mstrtrim(const char *s1, const char *set, size_t list_stack);
+char		*__mstr_rm_cs(const char *str,
+				const char *charset, size_t list_stack);
+char		*__mstr_rm(const char *str, const char c, size_t list_stack);
+char		*__msubstr(char const *s, unsigned int start,
+				size_t len, size_t list_stack);
 
 /*
 **	STRS

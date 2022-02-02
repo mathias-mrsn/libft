@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:48:41 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/22 15:30:18 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/02 17:42:34 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	*__malloc(size_t count, size_t	list_nbr)
 	if (count)
 	{
 		ret = __calloc(count, 1);
-		__lstadd_front(&lst[list_nbr], __lstnew(ret));
+		if (NULL != ret && list_nbr > 0)
+			__lstadd_front(&lst[list_nbr], __lstnew(ret));
 	}
 	return (ret);
 }

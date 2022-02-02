@@ -6,11 +6,11 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:41:45 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 11:41:46 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/02 18:17:06 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 int	__tolower(int c)
 {

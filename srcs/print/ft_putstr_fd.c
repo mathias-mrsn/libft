@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:45:03 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 11:46:39 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/02 18:53:30 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@ void	__putstr(char *s, int fd)
 {
 	if (!s)
 		return ;
-	while (*s)
-		__putchar(*s++, fd);
+	write(fd, s, __strlen(s));
 }

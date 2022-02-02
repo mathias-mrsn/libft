@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_mstr_rm.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:41:44 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/02 18:17:02 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/02/02 18:46:12 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/02/02 18:50:45 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	__toupper(int c)
+char
+	*__mstr_rm(const char *str, const char c, size_t list_stack)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	return (__mstr_rm_cs(str, (char [2]){c, '\0'}, list_stack));
 }

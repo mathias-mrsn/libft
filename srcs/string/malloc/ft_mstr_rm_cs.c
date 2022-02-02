@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_count_cs.c                                  :+:      :+:    :+:   */
+/*   ft_mstr_rm_cs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 21:49:26 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/02 18:52:30 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/02/02 18:38:05 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/02/02 18:56:12 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t
-	__str_count_cs(const char *str, const char *charset)
+char
+	*__mstr_rm_cs(const char *str, const char *charset, size_t list_stack)
 {
+	size_t	size;
 	size_t	idx;
-	size_t	count;
+	char	*new_str;
 
 	idx = 0;
-	count = 0;
 	if (NULL == str || NULL == charset)
-		return (0);
-	while (str[idx] != '\0')
+		return (NULL);
+	size = __str_count_cs(str, charset);
+	new_str = __malloc(sizeof(char) * (size + 1), list_stack);
+	if (NULL == new_str)
+		return (NULL);
+	size = 0;
+	while (str[idx])
 	{
-		if (__TRUE == __is_charset(str[idx], (char *)charset))
-			count += 1;
-		idx += 1;
+		if (__FALSE == __is_charset(str[idx], (char *)charset))
+			new_str[size++] = str[idx];
+		idx++;
 	}
-	return (count);
+	new_str[size] = '\0';
+	return (new_str);
 }

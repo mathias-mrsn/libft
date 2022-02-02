@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:41:44 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/02 18:17:02 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/02/02 18:16:10 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/02/02 18:16:54 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	__toupper(int c)
+int	__isupper(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	if (c >= 'A' && c <= 'Z')
+		return (__TRUE);
+	return (__FALSE);
 }

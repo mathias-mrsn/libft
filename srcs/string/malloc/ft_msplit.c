@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_msplit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:41:44 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/02 18:17:02 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/02/02 17:22:45 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/02/02 18:33:23 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	__toupper(int c)
+char
+	**__msplit(const char *str, char c, size_t list_stack)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	return (__msplitcs((char *)str, (char [2]){c, '\0'}, list_stack));
 }

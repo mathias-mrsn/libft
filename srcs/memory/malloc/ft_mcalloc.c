@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_mcalloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:41:44 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/02 18:17:02 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/02/02 17:36:30 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/02/02 18:31:46 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	__toupper(int c)
+void	*__mcalloc(size_t count, size_t size, size_t list_stack)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	void	*mem;
+
+	mem = __malloc(size * count, list_stack);
+	if (!mem)
+		return (NULL);
+	__bzero(mem, count * size);
+	return (mem);
 }

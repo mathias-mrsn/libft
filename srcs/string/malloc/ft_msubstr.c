@@ -1,20 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_msubstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:41:44 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/02 18:17:02 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/02/02 17:34:51 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/02/02 18:33:16 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	__toupper(int c)
+char	*__msubstr(char const *s, unsigned int start,
+	size_t len, size_t list_stack)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	size_t	i;
+	char	*new;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	if (__strlen(s) <= start)
+		len = 0;
+	if (__strlen(s) <= len)
+		len = __strlen(s);
+	new = __malloc(sizeof(char) * (len + 1), list_stack);
+	if (!new)
+		return (NULL);
+	while (s[i + start] && i < len)
+	{
+		new[i] = s[i + start];
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
 }

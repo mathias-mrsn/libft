@@ -6,15 +6,15 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:41:50 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 11:41:51 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/02 18:20:00 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-int	__isacii(int c)
+int	__isascii(int c)
 {
 	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+		return (__TRUE);
+	return (__FALSE);
 }
