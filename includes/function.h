@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/02 18:57:02 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/03 10:54:30 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,6 @@ void		*__memcpy(void *dst, const void *src, size_t n);
 int			__memcmp(const void *s1, const void *s2, size_t n);
 void		*__memmove(void *dst, const void *src, size_t len);
 void		*__memccpy(void *dst, const void *src, int c, size_t n);
-
-void		*__mcalloc(size_t count, size_t size, size_t list_stack);
 
 /*
 **	PRINT
