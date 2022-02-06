@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 14:38:40 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/19 14:41:13 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:56:00 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 double
 	__trnd(int condition, double true, double false)
 {
-	if (__SUCCESS == condition)
+	if (__TRUE == condition)
 		return (true);
 	else
 		return (false);
@@ -24,7 +24,7 @@ double
 long double
 	__trnld(int condition, long double true, long double false)
 {
-	if (__SUCCESS == condition)
+	if (__TRUE == condition)
 		return (true);
 	else
 		return (false);

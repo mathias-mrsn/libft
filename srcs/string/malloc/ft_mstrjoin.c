@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 17:30:13 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/02 18:32:58 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:50:20 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*__mstrjoin(char const *s1, char const *s2, size_t list_stack)
 	char	*newstr;
 
 	if (!s1 || !s2)
-		return (NULL);
+		return (__trnpc((s1 == NULL), (char *)s2, (char *)s1));
 	i = __strlen(s1);
 	j = __strlen(s2);
 	newstr = __malloc(sizeof(char) * (i + j + 1), list_stack);

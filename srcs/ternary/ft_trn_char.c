@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 13:08:57 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/19 14:54:22 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:56:08 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int8_t
 	__trn8(int condition, int8_t true, int8_t false)
 {
-	if (__SUCCESS == condition)
+	if (__TRUE == condition)
 		return (true);
 	else
 		return (false);
@@ -24,7 +24,7 @@ int8_t
 uint8_t
 	__trnu8(int condition, uint8_t true, uint8_t false)
 {
-	if (__SUCCESS == condition)
+	if (__TRUE == condition)
 		return (true);
 	else
 		return (false);

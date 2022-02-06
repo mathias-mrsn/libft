@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/03 10:54:30 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/05 16:47:20 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ int64_t		__stridx(char *str, char *charset);
 size_t		__strlcpy(char *dest, const char *src, size_t size);
 size_t		__strlen_except(char *str, char *charset);
 char		*__strmapi(char const *s, char (*f)(unsigned int, char));
+t_boolean	__str_is(const char *str, int flags);
 char		*__str_rm_cs(const char *str, const char *charset);
 char		*__str_rm(const char *str, const char c);
 char		*__substr(char const *s, unsigned int start, size_t len);
