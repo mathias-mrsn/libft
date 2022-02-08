@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:03:25 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/02 18:54:16 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/08 18:08:07 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,10 @@
 
 # ifndef STANDARD_STACK
 #  define STANDARD_STACK 1
+# endif
+
+# ifndef __DONT_STOCK_MEM
+#  define __DONT_STOCK_MEM 0
 # endif
 
 /*
