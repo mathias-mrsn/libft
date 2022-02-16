@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 17:19:59 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/02 18:32:37 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/16 13:35:13 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ static size_t
 	size_t	len;
 
 	len = 0;
-	i = -1;
-	while (str[++i])
+	i = 0;
+	while (str[i])
 	{
 		if (str[i] && !__is_charset(str[i], charset))
-			++len;
+			len++;
 		while (str[i] && !__is_charset(str[i], charset))
-			++i;
+			i++;
+		if (str[i])
+			i++;
 	}
 	return (len);
 }

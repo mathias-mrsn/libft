@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:54:05 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 11:54:06 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/16 13:48:05 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ t_list	*__lstnew(void *content)
 
 	newlist = malloc(sizeof(t_list));
 	if (!newlist)
-		return (NULL);
+		return (free(content), __malloc_error(__LINE__,
+			__FILE__, sizeof(t_list)), NULL);
 	newlist->content = content;
 	newlist->next = NULL;
 	return (newlist);

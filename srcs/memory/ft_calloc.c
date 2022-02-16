@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:47:57 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/03 10:54:17 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/16 13:45:47 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*__calloc(size_t count, size_t size)
 
 	mem = malloc(size * count);
 	if (!mem)
-		return (NULL);
+		return (__malloc_error(__LINE__, __FILE__, (size * count)), NULL);
 	__bzero(mem, count * size);
 	return (mem);
 }

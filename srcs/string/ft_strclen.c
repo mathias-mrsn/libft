@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mstrldup.c                                      :+:      :+:    :+:   */
+/*   ft_strclen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/02 17:31:24 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/16 13:35:28 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/02/12 18:40:10 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/02/12 18:42:32 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char
-	*__mstrldup(char *str, size_t len, size_t list_stack)
+size_t
+	__strclen(const char *str, const char c)
 {
-	size_t	size;
-	char	*newstr;
+	size_t	i;
 
-	size = __trnst((len < __strlen(str)), len, __strlen(str));
-	newstr = (char *)__malloc(sizeof(char) * (size + 1), list_stack);
-	if (NULL == newstr)
-		return (NULL);
-	__memcpy(newstr, str, size);
-	newstr[size] = '\0';
-	return (newstr);
+	i = 0;
+	if (NULL == str)
+		return (0);
+	while (str[i] && str[i] != c)
+		i++;
+	return (i);
 }

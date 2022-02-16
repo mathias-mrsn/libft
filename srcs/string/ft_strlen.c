@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 12:00:22 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/05 13:59:31 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/12 18:42:18 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,5 @@
 
 size_t	__strlen(const char *str)
 {
-	size_t	i;
-
-	i = 0;
-	if (NULL == str)
-		return (0);
-	while (str[i])
-		i++;
-	return (i);
+	return (__strclen(str, 0));
 }

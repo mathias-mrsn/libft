@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mstrldup.c                                      :+:      :+:    :+:   */
+/*   ft_mstrs_add_back.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/02 17:31:24 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/16 13:35:28 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/02/16 09:32:52 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/02/16 13:35:48 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char
-	*__mstrldup(char *str, size_t len, size_t list_stack)
+t_boolean
+	__mstrs_add_back(char ***strs, char *str, size_t list_stack)
 {
-	size_t	size;
-	char	*newstr;
+	const char		**old = (const char **)(*strs);
+	const size_t	size = __strslen((char **)old);
+	char			**new;
 
-	size = __trnst((len < __strlen(str)), len, __strlen(str));
-	newstr = (char *)__malloc(sizeof(char) * (size + 1), list_stack);
-	if (NULL == newstr)
-		return (NULL);
-	__memcpy(newstr, str, size);
-	newstr[size] = '\0';
-	return (newstr);
+	new = (char **)__malloc(sizeof(char *) * (size + 2), list_stack);
+	if (NULL == new)
+		return (__FAILURE);
+	__memmove(new, old, size * 8);
+	new[size] = str;
+	new[size + 1] = NULL;
+	(*strs) = new;
+	return (__SUCCESS);
 }
