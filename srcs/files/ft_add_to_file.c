@@ -6,7 +6,7 @@
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 19:00:53 by mathias           #+#    #+#             */
-/*   Updated: 2022/02/19 19:05:34 by mathias          ###   ########.fr       */
+/*   Updated: 2022/02/19 23:10:26 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_boolean
 	__add_to_file(char *filename, char *str)
 {
 	int	fd;
-	
+
 	if (NULL == str || NULL == filename)
 		return (__FALSE);
 	if (__FALSE == __file_exist(filename))
@@ -25,4 +25,5 @@ t_boolean
 	if (OPEN_ERROR == fd)
 		return (__FAILURE);
 	write(fd, str, __strlen(str));
+	return (__SUCCESS);
 }

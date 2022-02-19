@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_mem_stack_len.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:54:05 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/19 21:38:11 by mathias          ###   ########.fr       */
+/*   Created: 2022/02/19 21:30:41 by mathias           #+#    #+#             */
+/*   Updated: 2022/02/19 22:30:35 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*__lstnew(void *content, size_t id)
+size_t
+	__mem_stack_len(size_t list_stack)
 {
-	t_list	*newlist;
+	t_list	**head;
 
-	newlist = malloc(sizeof(t_list));
-	if (!newlist)
-		return (free(content), __malloc_error(__LINE__,
-				__FILE__, sizeof(t_list)), NULL);
-	newlist->content = content;
-	newlist->id = id;
-	newlist->next = NULL;
-	return (newlist);
+	head = __malloc(0, list_stack);
+	return (__lstsize((*head)));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_file_create.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 21:07:30 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/28 21:48:11 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/19 21:26:08 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int
 {
 	int	fd;
 
-	if (__FALSE == __file_exist(filename))
+	if (__TRUE == __file_exist(filename))
 		return (OPEN_ERROR);
 	fd = open(filename, O_WRONLY | O_CREAT, 0644);
 	if (-1 == fd)

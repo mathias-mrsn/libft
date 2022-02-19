@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_clean_all.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 15:34:08 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/02 17:43:25 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/19 22:33:53 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void
 	size_t	idx;
 
 	idx = 0;
-	while (idx <= MALLOC_LIST_SIZE)
+	while (idx < MALLOC_LIST_SIZE)
 	{
 		__clean(idx);
 		idx += 1;

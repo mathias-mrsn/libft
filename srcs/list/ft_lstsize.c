@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:54:15 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 11:54:16 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/19 21:34:01 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	__lstsize(t_list *lst)
+size_t
+	__lstsize(t_list *lst)
 {
 	t_list	*tmp;
 	int		count;

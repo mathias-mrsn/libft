@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:53:56 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 11:55:16 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/19 22:01:02 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_list	*__lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		return (NULL);
 	while (lst)
 	{
-		newelem = __lstnew((*f)(lst->content));
+		newelem = __lstnew((*f)(lst->content), 0);
 		if (!newelem)
 		{
 			__lstclear(&new, del);

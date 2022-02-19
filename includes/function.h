@@ -6,7 +6,7 @@
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/19 19:05:21 by mathias          ###   ########.fr       */
+/*   Updated: 2022/02/19 22:00:00 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,13 @@ int			__is_charset(char c, char *set);
 typedef struct s_list
 {
 	void			*content;
+	size_t			id;
 	struct s_list	*next;
 }				t_list;
 
-int			__lstsize(t_list *lst);
+size_t		__lstsize(t_list *lst);
 t_list		*__lstlast(t_list *lst);
-t_list		*__lstnew(void *content);
+t_list		*__lstnew(void *content, size_t id);
 void		__lstadd_back(t_list **alst, t_list *new);
 void		__lstiter(t_list *lst, void (*f)(void *));
 void		__lstadd_front(t_list **alst, t_list *new);
@@ -61,17 +62,24 @@ void		__lstdelone(t_list *lst, void (*del)(void*));
 t_list		*__lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /*
+**	MALLOC
+*/
+
+size_t		__mem_stack_len(size_t list_stack);
+void		__clean(size_t list_nbr);
+int8_t		__free(void	*addr, size_t list_nbr);
+void		*__malloc(size_t count, size_t list_nbr);
+void		__clean_all(void);
+void		__print_memory(void);
+
+/*
 **	MEMORY
 */
 
-void		__clean(size_t list_nbr);
-int8_t		__free(void	*addr, size_t list_nbr);
 void		__strsfree(char **tab);
 void		__bzero(void *b, size_t len);
 void		*__calloc(size_t count, size_t size);
-void		*__malloc(size_t count, size_t list_nbr);
 void		*__memset(void *b, int c, size_t len);
-void		__clean_all(void);
 void		__memdel(void **p);
 void		*__memchr(const void *s, int c, size_t n);
 void		*__memcpy(void *dst, const void *src, size_t n);
