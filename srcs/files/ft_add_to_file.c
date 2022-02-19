@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_add_to_file.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:58:59 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/18 16:01:18 by mathias          ###   ########.fr       */
+/*   Created: 2022/02/19 19:00:53 by mathias           #+#    #+#             */
+/*   Updated: 2022/02/19 19:05:34 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	*__strdup(const char *src)
+t_boolean
+	__add_to_file(char *filename, char *str)
 {
-	return (__mstrdup(src, STANDARD_STACK));
+	int	fd;
+	
+	if (NULL == str || NULL == filename)
+		return (__FALSE);
+	if (__FALSE == __file_exist(filename))
+		return (__FAILURE);
+	fd = __file_append(filename);
+	if (OPEN_ERROR == fd)
+		return (__FAILURE);
+	write(fd, str, __strlen(str));
 }

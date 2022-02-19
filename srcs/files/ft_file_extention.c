@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_file_extention.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:58:59 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/18 16:01:18 by mathias          ###   ########.fr       */
+/*   Created: 2022/02/19 18:41:42 by mathias           #+#    #+#             */
+/*   Updated: 2022/02/19 19:04:05 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	*__strdup(const char *src)
+t_boolean
+	__file_extention(char *file, char *extention)
 {
-	return (__mstrdup(src, STANDARD_STACK));
+	if (NULL == file || NULL == extention)
+		return (__FALSE);
+	if (__strlen(file) <= __strlen(extention))
+		return (__FALSE);
+	if (extention[0] != '.' || __str_is(extention + 1, __IS_ALPHA | __IS_DIGIT))
+		return (__FALSE);
+	if (0 == __strcmp(file + __strlen(file) - __strlen(extention), extention))
+		return (__TRUE);
+	return (__FALSE);
 }
