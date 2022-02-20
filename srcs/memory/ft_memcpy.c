@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:50:03 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 11:50:04 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/20 13:16:22 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,26 @@
 
 void	*__memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char	*s1;
-	unsigned char	*s2;
+	uint8_t			*s1;
+	uint8_t			*s2;
+	__uint128_t		*us1;
+	__uint128_t		*us2;
 
-	s1 = (unsigned char *)dst;
-	s2 = (unsigned char *)src;
-	if (!src && !dst)
+	if ((!src && !dst) || dst == src)
 		return (dst);
+	us1 = (__uint128_t *)dst;
+	us2 = (__uint128_t *)src;
+	while (n >= sizeof(__uint128_t))
+	{
+		*us1++ = *us2++;
+		n -= sizeof(__uint128_t);
+	}
+	s1 = (uint8_t *)dst;
+	s2 = (uint8_t *)src;
 	while (n)
 	{
 		--n;
-		s1[n] = s2[n];
+		*s1++ = *s2++;
 	}
 	return (dst);
 }
