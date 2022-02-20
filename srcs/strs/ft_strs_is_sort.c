@@ -6,11 +6,14 @@
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 00:49:05 by mathias           #+#    #+#             */
-/*   Updated: 2022/02/20 00:50:02 by mathias          ###   ########.fr       */
+/*   Updated: 2022/02/20 11:07:16 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+#define STRS_NULL 		"strs is NULL"
+#define STRS_UNSORTED 	"strs is unsorted"
 
 t_boolean
 	__strs_is_sort(char **tab)
@@ -18,11 +21,13 @@ t_boolean
 	int	i;
 
 	i = 0;
+	if (NULL == tab || NULL == (*tab))
+		return (__lib_fail(__FILE__, __LINE__, STRS_NULL), __FALSE);
 	while (tab[i + 1])
 	{
 		if (__strcmp(tab[i], tab[i + 1]) > 0)
-			return (__FALSE);
+			return (__lib_fail(__FILE__, __LINE__, STRS_UNSORTED), __FALSE);
 		i++;
 	}
-	return (__FALSE);
+	return (__TRUE);
 }

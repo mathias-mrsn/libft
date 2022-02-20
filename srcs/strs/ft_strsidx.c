@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsidx.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 10:57:47 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/19 14:56:06 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:12:31 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+#define STRS_NULL	"strs or str is NULL"
+#define IS_NOT_IN 	"str string is not in strs"
 
 int64_t
 	__strsidx(char **strs, char *str)
@@ -19,11 +22,11 @@ int64_t
 
 	i = 0;
 	if (NULL == strs || NULL == *strs || NULL == str)
-		return (__ERROR);
+		return (__lib_fail(__FILE__, __LINE__, STRS_NULL), __ERROR);
 	while (strs[i])
 	{
 		if (0 == __strncmp(strs[i], str, UINT64_MAX))
 			return (i);
 	}
-	return (__ERROR);
+	return (__lib_fail(__FILE__, __LINE__, IS_NOT_IN), __ERROR);
 }

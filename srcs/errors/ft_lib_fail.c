@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strslen.c                                       :+:      :+:    :+:   */
+/*   ft_exit_failure.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 10:41:13 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 11:14:38 by mathias          ###   ########.fr       */
+/*   Created: 2022/02/20 10:53:22 by mathias           #+#    #+#             */
+/*   Updated: 2022/02/20 11:00:13 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#define STRS_NULL 		"strs is NULL"
-
-size_t
-	__strslen(char **strs)
+void
+	__lib_fail(char *file, int line, char *msg)
 {
-	size_t	len;
-
-	len = 0;
-	if (NULL == strs || !*strs)
-		return (__lib_fail(__FILE__, __LINE__, STRS_NULL), 0);
-	while (strs[len])
-		len += 1;
-	return (len);
+	if (0 == __LIBFT_FAILURE_LOCATED)
+		return ;
+	__putstr("libft: ", STDERR_FILENO);
+	if (NULL != file)
+	{
+		__putstr("(file:", STDERR_FILENO);
+		__putstr(file, STDERR_FILENO);
+		__putstr(", l.", STDERR_FILENO);
+		__putnbr(line, STDERR_FILENO);
+		__putstr(") ", STDERR_FILENO);
+	}
+	__putstr(msg, STDERR_FILENO);
+	__putstr("\n", STDERR_FILENO);
 }

@@ -3,22 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strs_at.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:59:42 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/28 21:42:51 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:10:09 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+#define STRS_NULL 	"strs is NULL"
+#define STRS_SMALLER 	"strs smaller than at value"
+
 char
 	*__strs_at(char **strs, size_t at)
 {
 	if (NULL == strs || NULL == (*strs))
-		return (NULL);
+		return (__lib_fail(__FILE__, __LINE__, STRS_NULL), NULL);
 	else if (__strslen(strs) >= at)
-		return (NULL);
+		return (__lib_fail(__FILE__, __LINE__, STRS_SMALLER), NULL);
 	else
 		return (strs[at]);
 }

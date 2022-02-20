@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:03:25 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/08 18:08:07 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/20 10:52:46 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@
 
 # ifndef __DONT_STOCK_MEM
 #  define __DONT_STOCK_MEM 0
+# endif
+
+# ifndef __LIBFT_FAILURE_LOCATED
+#  define __LIBFT_FAILURE_LOCATED 1
 # endif
 
 /*
