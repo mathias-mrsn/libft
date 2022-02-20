@@ -6,13 +6,13 @@
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 09:35:28 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 11:22:41 by mathias          ###   ########.fr       */
+/*   Updated: 2022/02/20 12:51:38 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#define STRS_NULL 		"strs or str is NULL"
+#define STR_NULL 		"str is NULL"
 
 t_boolean
 	__mstrs_add_front(char ***strs, char *str, size_t list_stack)
@@ -21,8 +21,8 @@ t_boolean
 	const size_t	size = __strslen((char **)old);
 	char			**new;
 
-	if (NULL == strs || NULL == *strs || NULL == str)
-		return (__lib_output(__FILE__, __LINE__, STRS_NULL), __ERROR);
+	if (NULL == str)
+		return (__lib_output(__FILE__, __LINE__, STR_NULL), __ERROR);
 	new = (char **)__malloc(sizeof(char *) * (size + 2), list_stack);
 	if (NULL == new)
 		return (__FAILURE);
