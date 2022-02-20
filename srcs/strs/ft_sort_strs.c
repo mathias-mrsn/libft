@@ -6,7 +6,7 @@
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 00:46:23 by mathias           #+#    #+#             */
-/*   Updated: 2022/02/20 11:15:54 by mathias          ###   ########.fr       */
+/*   Updated: 2022/02/20 11:22:41 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void
 	i = 0;
 	if (NULL == tab || NULL == (*tab))
 	{
-		__lib_fail(__FILE__, __LINE__, STRS_NULL);
+		__lib_output(__FILE__, __LINE__, STRS_NULL);
 		return ;
 	}
 	while (tab[i + 1])

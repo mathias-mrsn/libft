@@ -6,7 +6,7 @@
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 11:01:30 by mathias          ###   ########.fr       */
+/*   Updated: 2022/02/20 11:22:41 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void		*__memccpy(void *dst, const void *src, int c, size_t n);
 */
 
 void		__malloc_error(int line, char *file, size_t size);
-void		__lib_fail(char *file, int line, char *msg);
+void		__lib_output(char *file, int line, char *msg);
 
 /*
 **	PRINT

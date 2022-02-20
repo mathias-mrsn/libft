@@ -6,7 +6,7 @@
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 10:41:13 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 11:14:38 by mathias          ###   ########.fr       */
+/*   Updated: 2022/02/20 11:22:41 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t
 
 	len = 0;
 	if (NULL == strs || !*strs)
-		return (__lib_fail(__FILE__, __LINE__, STRS_NULL), 0);
+		return (__lib_output(__FILE__, __LINE__, STRS_NULL), 0);
 	while (strs[len])
 		len += 1;
 	return (len);

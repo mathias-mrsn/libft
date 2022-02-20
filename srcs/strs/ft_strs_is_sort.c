@@ -6,7 +6,7 @@
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 00:49:05 by mathias           #+#    #+#             */
-/*   Updated: 2022/02/20 11:07:16 by mathias          ###   ########.fr       */
+/*   Updated: 2022/02/20 11:22:41 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ t_boolean
 
 	i = 0;
 	if (NULL == tab || NULL == (*tab))
-		return (__lib_fail(__FILE__, __LINE__, STRS_NULL), __FALSE);
+		return (__lib_output(__FILE__, __LINE__, STRS_NULL), __FALSE);
 	while (tab[i + 1])
 	{
 		if (__strcmp(tab[i], tab[i + 1]) > 0)
-			return (__lib_fail(__FILE__, __LINE__, STRS_UNSORTED), __FALSE);
+			return (__lib_output(__FILE__, __LINE__, STRS_UNSORTED), __FALSE);
 		i++;
 	}
 	return (__TRUE);
