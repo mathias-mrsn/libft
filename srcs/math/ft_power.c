@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:48:10 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 00:03:39 by mathias          ###   ########.fr       */
+/*   Created: 2022/02/20 00:40:41 by mathias           #+#    #+#             */
+/*   Updated: 2022/02/20 00:42:20 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int8_t	__free(void	*addr)
+size_t
+	__power(size_t nb, int power)
 {
-	size_t	stack;
-
-	stack = __is_in_my_memory(addr);
-	if (__FALSE == stack)
-		return (free(addr), __FAILURE);
-	__list_remove(__malloc(0, stack), addr);
-	return (__SUCCESS);
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	return (nb * __power(nb, power - 1));
 }

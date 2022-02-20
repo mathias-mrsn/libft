@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:48:10 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 00:03:39 by mathias          ###   ########.fr       */
+/*   Created: 2022/02/20 00:37:57 by mathias           #+#    #+#             */
+/*   Updated: 2022/02/20 00:38:14 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int8_t	__free(void	*addr)
+char
+	*__strlowcase(char *str)
 {
-	size_t	stack;
+	int		i;
 
-	stack = __is_in_my_memory(addr);
-	if (__FALSE == stack)
-		return (free(addr), __FAILURE);
-	__list_remove(__malloc(0, stack), addr);
-	return (__SUCCESS);
+	i = -1;
+	while (str[++i])
+	{
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32;
+	}
+	return (str);
 }

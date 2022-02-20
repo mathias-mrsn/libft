@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_is_in_my_memory.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:48:10 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 00:03:39 by mathias          ###   ########.fr       */
+/*   Created: 2022/02/19 23:43:58 by mathias           #+#    #+#             */
+/*   Updated: 2022/02/19 23:56:29 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int8_t	__free(void	*addr)
+size_t
+	__is_in_my_memory(void *ptr)
 {
-	size_t	stack;
+	size_t	idx;
 
-	stack = __is_in_my_memory(addr);
-	if (__FALSE == stack)
-		return (free(addr), __FAILURE);
-	__list_remove(__malloc(0, stack), addr);
-	return (__SUCCESS);
+	idx = 0;
+	while (idx < MALLOC_LIST_SIZE)
+	{
+		if (__TRUE == __is_in_stack(ptr, idx))
+			return (idx);
+		idx += 1;
+	}
+	return (__FALSE);
 }

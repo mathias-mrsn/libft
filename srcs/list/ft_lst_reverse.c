@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_lst_reverse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:48:10 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 00:03:39 by mathias          ###   ########.fr       */
+/*   Created: 2022/02/20 00:18:35 by mathias           #+#    #+#             */
+/*   Updated: 2022/02/20 01:06:50 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int8_t	__free(void	*addr)
+void	__lst_reverse(t_list *begin_list)
 {
-	size_t	stack;
+	unsigned int	sb;
+	unsigned int	se;
+	t_list			*save;
+	void			*tmp;
 
-	stack = __is_in_my_memory(addr);
-	if (__FALSE == stack)
-		return (free(addr), __FAILURE);
-	__list_remove(__malloc(0, stack), addr);
-	return (__SUCCESS);
+	sb = 0;
+	se = __lstsize(begin_list);
+	while (sb < se / 2)
+	{
+		tmp = __lst_at(begin_list, sb)->content;
+		save = __lst_at(begin_list, (se - sb - 1))->content;
+		__lst_at(begin_list, sb)->content = save;
+		__lst_at(begin_list, se - sb - 1)->content = tmp;
+		sb++;
+	}
 }

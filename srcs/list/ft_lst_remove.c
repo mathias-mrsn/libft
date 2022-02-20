@@ -1,24 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_lst_remove.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:48:10 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 00:03:39 by mathias          ###   ########.fr       */
+/*   Created: 2022/02/19 23:54:12 by mathias           #+#    #+#             */
+/*   Updated: 2022/02/20 01:00:40 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int8_t	__free(void	*addr)
+void
+	__list_remove(t_list **begin_list, void *data_ref)
 {
-	size_t	stack;
+	t_list	*prev;
+	t_list	*next;
+	t_list	*curr;
 
-	stack = __is_in_my_memory(addr);
-	if (__FALSE == stack)
-		return (free(addr), __FAILURE);
-	__list_remove(__malloc(0, stack), addr);
-	return (__SUCCESS);
+	prev = 0;
+	next = (*begin_list);
+	while (next)
+	{
+		if (next->content == data_ref)
+		{
+			if (prev == NULL)
+				*begin_list = next->next;
+			else
+				prev->next = next->next;
+			curr = next;
+			next = next->next;
+			free(curr->content);
+			free(curr);
+		}
+		else
+		{
+			prev = next;
+			next = prev->next;
+		}
+	}
 }

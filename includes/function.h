@@ -6,7 +6,7 @@
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/19 22:00:00 by mathias          ###   ########.fr       */
+/*   Updated: 2022/02/20 01:00:06 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@
 **	MATH
 */
 
+size_t		__power(size_t nb, int power);
+size_t		__fibonacci(int index);
 int			__abs(int x);
 long		__labs(long x);
 int			__max(int x, int y);
 int			__min(int x, int y);
 int64_t		__llabs(int64_t x);
 long		__random(int len_max);
+t_boolean	__is_prime(size_t nb);
 
 /*
 **	CHAR
@@ -60,6 +63,12 @@ void		__lstadd_front(t_list **alst, t_list *new);
 void		__lstclear(t_list **lst, void (*del)(void*));
 void		__lstdelone(t_list *lst, void (*del)(void*));
 t_list		*__lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void		__list_remove(t_list **begin_list, void *data_ref);
+t_list		*__lst_push_strs(int size, char **strs);
+t_list		*__lst_at(t_list *begin_list, unsigned int nbr);
+void		__lst_reverse(t_list *begin_list);
+void		__lst_merge(t_list **begin_list1, t_list *begin_list2);
+void		__lst_sort(t_list **begin_list, int (*cmp)());
 
 /*
 **	MALLOC
@@ -67,15 +76,18 @@ t_list		*__lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 size_t		__mem_stack_len(size_t list_stack);
 void		__clean(size_t list_nbr);
-int8_t		__free(void	*addr, size_t list_nbr);
+int8_t		__free(void	*addr);
 void		*__malloc(size_t count, size_t list_nbr);
 void		__clean_all(void);
 void		__print_memory(void);
+t_boolean	__is_in_stack(void *ptr, size_t list_stack);
+size_t		__is_in_my_memory(void *ptr);
 
 /*
 **	MEMORY
 */
 
+void		__memswap(void	**s1, void	**s2);
 void		__strsfree(char **tab);
 void		__bzero(void *b, size_t len);
 void		*__calloc(size_t count, size_t size);
@@ -125,6 +137,8 @@ char		*__mitoa(int64_t n, size_t list_stack);
 **	STRING
 */
 
+char		*__strupcase(char *str);
+char		*__strlowcase(char *str);
 char		*__strdup(const char *src);
 size_t		__strlen(const char *str);
 char		*__strchr(const char *s, int c);
@@ -172,6 +186,8 @@ char		*__msubstr(char const *s, unsigned int start,
 
 size_t		__strslen(char **strs);
 int64_t		__strsidx(char **strs, char *str);
+void		__sort_strs(char **tab);
+t_boolean	__strs_is_sort(char **tab);
 t_boolean	__strs_add_back(char ***strs, char *str);
 t_boolean	__strs_add_front(char ***strs, char *str);
 char		*__strs_at(char **strs, size_t at);

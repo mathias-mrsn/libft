@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_lst_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:48:10 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 00:03:39 by mathias          ###   ########.fr       */
+/*   Created: 2022/02/20 00:23:07 by mathias           #+#    #+#             */
+/*   Updated: 2022/02/20 01:00:32 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int8_t	__free(void	*addr)
+void
+	__lst_sort(t_list **begin_list, int (*cmp)())
 {
-	size_t	stack;
+	t_list	*tmp;
 
-	stack = __is_in_my_memory(addr);
-	if (__FALSE == stack)
-		return (free(addr), __FAILURE);
-	__list_remove(__malloc(0, stack), addr);
-	return (__SUCCESS);
+	tmp = *begin_list;
+	while (tmp)
+	{
+		if (!tmp->next)
+			return ;
+		if (cmp(tmp->content, tmp->next->content) > 0)
+		{
+			__memswap(&tmp->content, &tmp->next->content);
+			tmp = *begin_list;
+		}
+		else
+			tmp = tmp->next;
+	}
 }

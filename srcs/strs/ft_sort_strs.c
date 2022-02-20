@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_sort_strs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:48:10 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 00:03:39 by mathias          ###   ########.fr       */
+/*   Created: 2022/02/20 00:46:23 by mathias           #+#    #+#             */
+/*   Updated: 2022/02/20 00:56:37 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int8_t	__free(void	*addr)
+void
+	__sort_strs(char **tab)
 {
-	size_t	stack;
+	int	i;
 
-	stack = __is_in_my_memory(addr);
-	if (__FALSE == stack)
-		return (free(addr), __FAILURE);
-	__list_remove(__malloc(0, stack), addr);
-	return (__SUCCESS);
+	i = 0;
+	while (tab[i + 1])
+	{
+		if (__strcmp(tab[i], tab[i + 1]) > 0)
+		{
+			__memswap((void **)&tab[i], (void **)&tab[i + 1]);
+			i = -1;
+		}
+		i++;
+	}
 }

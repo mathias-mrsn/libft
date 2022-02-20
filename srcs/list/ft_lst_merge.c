@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_lst_merge.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:48:10 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 00:03:39 by mathias          ###   ########.fr       */
+/*   Created: 2022/02/20 00:21:13 by mathias           #+#    #+#             */
+/*   Updated: 2022/02/20 00:21:28 by mathias          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int8_t	__free(void	*addr)
+void
+	__lst_merge(t_list **begin_list1, t_list *begin_list2)
 {
-	size_t	stack;
+	t_list	*list;
 
-	stack = __is_in_my_memory(addr);
-	if (__FALSE == stack)
-		return (free(addr), __FAILURE);
-	__list_remove(__malloc(0, stack), addr);
-	return (__SUCCESS);
+	list = (*begin_list1);
+	while (list)
+	{
+		if (!(list->next))
+		{
+			list->next = begin_list2;
+			break ;
+		}
+		list = list->next;
+	}
+	if (!(list))
+		*begin_list1 = begin_list2;
 }
