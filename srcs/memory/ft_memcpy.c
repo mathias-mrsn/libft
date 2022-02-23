@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:50:03 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 13:16:22 by mathias          ###   ########.fr       */
+/*   Updated: 2022/02/23 12:06:46 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	*__memcpy(void *dst, const void *src, size_t n)
 		*us1++ = *us2++;
 		n -= sizeof(__uint128_t);
 	}
-	s1 = (uint8_t *)dst;
-	s2 = (uint8_t *)src;
+	s1 = (uint8_t *)us1;
+	s2 = (uint8_t *)us2;
 	while (n)
 	{
 		--n;
