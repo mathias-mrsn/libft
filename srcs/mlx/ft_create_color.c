@@ -1,40 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_random.c                                        :+:      :+:    :+:   */
+/*   ft_create_color.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:42:51 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/23 16:34:06 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/02/23 17:23:39 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/02/23 17:38:20 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	__random(int len_max)
+int
+	__create_color(unsigned char t, unsigned char r,
+		unsigned char g, unsigned char b)
 {
-	int		fd;
-	int		i;
-	long	res;
-	char	str[7];
-
-	res = 0;
-	fd = open("/dev/urandom", O_RDONLY);
-	if (fd < 0)
-		return (0);
-	if (read(fd, str, 7))
-	{
-		str[6] = '\0';
-		i = 6;
-		while (--i > 0)
-		{
-			res *= 10;
-			res += str[i];
-		}
-	}
-	close(fd);
-	if (res < 0)
-		res *= -1;
-	return (res % len_max);
+	return (*(int *)(unsigned char [4]){b, g, r, t});
 }

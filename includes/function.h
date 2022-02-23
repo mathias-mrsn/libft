@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   function.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 11:22:41 by mathias          ###   ########.fr       */
+/*   Updated: 2022/02/23 17:38:04 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,5 +223,28 @@ void		*__trnpv(int condition, void *true, void *false);
 int			*__trnpi(int condition, int *true, int *false);
 long double	__trnld(int condition, long double true, long double false);
 double		__trnd(int condition, double true, double false);
+
+/*
+**	MLX
+*/
+
+typedef struct s_img
+{
+	int		x;
+	int		y;
+	int		size_line;
+	int		bpp;
+	int		endian;
+	void	*ptr;
+	char	*addr;
+}				t_img;
+
+void		__put_pixel_on_img(t_img *img, int x, int y, int color);
+int			__get_t(int trgb);
+int			__get_r(int trgb);
+int			__get_g(int trgb);
+int			__get_b(int trgb);
+int			__create_color(unsigned char t, unsigned char r,
+				unsigned char g, unsigned char b);
 
 #endif

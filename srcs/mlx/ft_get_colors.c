@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_random.c                                        :+:      :+:    :+:   */
+/*   ft_get_colors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 11:42:51 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/23 16:34:06 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/02/23 17:21:46 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/02/23 17:23:18 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	__random(int len_max)
+int
+	__get_t(int trgb)
 {
-	int		fd;
-	int		i;
-	long	res;
-	char	str[7];
+	return ((trgb >> 24) & 0xFF);
+}
 
-	res = 0;
-	fd = open("/dev/urandom", O_RDONLY);
-	if (fd < 0)
-		return (0);
-	if (read(fd, str, 7))
-	{
-		str[6] = '\0';
-		i = 6;
-		while (--i > 0)
-		{
-			res *= 10;
-			res += str[i];
-		}
-	}
-	close(fd);
-	if (res < 0)
-		res *= -1;
-	return (res % len_max);
+int
+	__get_r(int trgb)
+{
+	return ((trgb >> 16) & 0xFF);
+}
+
+int
+	__get_g(int trgb)
+{
+	return ((trgb >> 8) & 0xFF);
+}
+
+int
+	__get_b(int trgb)
+{
+	return (trgb & 0xFF);
 }
