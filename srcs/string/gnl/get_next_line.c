@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 12:48:12 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 13:56:02 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/26 16:50:20 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static t_file	*__ft_find_file__(t_file **mem, int fd)
 			return (tmp);
 		tmp = tmp->next;
 	}
-	new = malloc(sizeof(t_file) * 1);
+	new = __malloc(sizeof(t_file) * 1, GNL_STACK);
 	if (!new)
 		return (NULL);
 	new->fd = fd;
@@ -59,7 +59,7 @@ static void	__ft_free__(t_file **mem, int fd)
 				back->next = next->next;
 			curr = next;
 			next = next->next;
-			free(curr);
+			__free(curr);
 		}
 		else
 		{

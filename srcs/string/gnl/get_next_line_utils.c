@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 12:48:17 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/04 17:33:24 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/26 16:49:04 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strdup(char *src)
 	i = 0;
 	if (!src)
 		return (NULL);
-	res = (char *)malloc(sizeof(char) * __ft_strlen__(src) + 1);
+	res = (char *)__malloc(sizeof(char) * __ft_strlen__(src) + 1, GNL_STACK);
 	if (!res)
 		return (NULL);
 	while (src[i] && src[i] != '\n')
@@ -54,7 +54,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		s1 = ft_strdup("\0");
 	if (!s2)
 		return (NULL);
-	newstr = malloc(sizeof(char) * (__ft_strlen__(s1) + __ft_strlen__(s2) + 1));
+	newstr = __malloc(sizeof(char) * (__ft_strlen__(s1) + __ft_strlen__(s2) + 1), GNL_STACK);
 	if (!newstr)
 		return (NULL);
 	i = -1;
@@ -64,7 +64,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[++j])
 		newstr[i + j] = s2[j];
 	newstr[i + j] = '\0';
-	return (free(s1), newstr);
+	return (__free(s1), newstr);
 }
 
 int	ft_is_line(char c, char *set)
@@ -91,10 +91,10 @@ char	*ft_get_save(char *src)
 	while (src[i] && src[i] != '\n')
 		i++;
 	if (!src[i] || !src[i + 1])
-		return (free(src), NULL);
+		return (__free(src), NULL);
 	if (src[i])
 		i++;
-	res = (char *)malloc(sizeof(char) * (__ft_strlen__(src + i) + 1));
+	res = (char *)__malloc(sizeof(char) * (__ft_strlen__(src + i) + 1), GNL_STACK);
 	if (!res)
 		return (NULL);
 	while (src[i])
@@ -104,5 +104,5 @@ char	*ft_get_save(char *src)
 		j++;
 	}
 	res[j] = '\0';
-	return (free(src), res);
+	return (__free(src), res);
 }

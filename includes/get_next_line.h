@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 12:48:07 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 13:55:45 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/26 16:52:51 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
+# include "libft.h"
+
+# ifndef GNL_STACK
+#  define GNL_STACK 120
+# endif
 
 typedef struct s_file
 {

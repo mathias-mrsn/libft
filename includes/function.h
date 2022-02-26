@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   function.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathias.mrsn <mathias.mrsn@student.42.f    +#+  +:+       +#+        */
+/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/26 13:31:20 by mathias.mrs      ###   ########.fr       */
+/*   Updated: 2022/02/26 14:08:40 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,12 @@ void		*__memmove(void *dst, const void *src, size_t len);
 void		*__memccpy(void *dst, const void *src, int c, size_t n);
 
 /*
-**	ERROR_CASE
+**	ERROR / EXIT
 */
 
 void		__malloc_error(int line, char *file, size_t size);
 void		__lib_output(char *file, int line, char *msg);
+void		__exit(int exit_code);
 
 /*
 **	PRINT
