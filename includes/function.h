@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   function.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathias.mrsn <mathias.mrsn@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/23 17:38:04 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/26 13:31:20 by mathias.mrs      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,6 +206,9 @@ int			__file_trunc(char *filename);
 int			__file_append(char *filename);
 t_boolean	__file_extention(char *file, char *extention);
 t_boolean	__add_to_file(char *filename, char *str);
+char		*__dirname(const char *path);
+char		*__basename(const char *path);
+
 
 /*
 **	CONDIRIONS
