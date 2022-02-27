@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 12:48:17 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/26 16:49:04 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/27 19:17:07 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ char	*ft_strjoin(char *s1, char *s2)
 		s1 = ft_strdup("\0");
 	if (!s2)
 		return (NULL);
-	newstr = __malloc(sizeof(char) * (__ft_strlen__(s1) + __ft_strlen__(s2) + 1), GNL_STACK);
+	newstr = __malloc(sizeof(char) * (__ft_strlen__(s1) + (size_t)
+				__ft_strlen__(s2) + 1), GNL_STACK);
 	if (!newstr)
 		return (NULL);
 	i = -1;
@@ -92,9 +93,9 @@ char	*ft_get_save(char *src)
 		i++;
 	if (!src[i] || !src[i + 1])
 		return (__free(src), NULL);
-	if (src[i])
-		i++;
-	res = (char *)__malloc(sizeof(char) * (__ft_strlen__(src + i) + 1), GNL_STACK);
+	i++;
+	res = (char *)__malloc(sizeof(char) * (__ft_strlen__(src + i) + 1),
+			GNL_STACK);
 	if (!res)
 		return (NULL);
 	while (src[i])

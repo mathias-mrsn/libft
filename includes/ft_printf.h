@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 10:53:58 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 13:55:35 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/27 19:14:18 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_options
 	int		width;
 	int		arg_length;
 	int		printed_length;
+	int		fd;
 }				t_options;
 
 typedef struct s_argument
@@ -49,6 +50,7 @@ typedef struct s_argument
 }				t_argument;
 
 int		__printf(const char *str, ...);
+int		__dprintf(int fd, const char *str, ...);
 
 /* PARSING */
 

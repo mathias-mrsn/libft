@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 09:36:39 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/11/29 10:39:51 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/27 19:11:12 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void	ft_putstr(char *str, int nb, t_options *options)
 	if (nb == 0)
 		return ;
 	while (*str && nb--)
-		ft_putchar(*str++, 1, options);
+		ft_putchar(*str++, options->fd, options);
 }

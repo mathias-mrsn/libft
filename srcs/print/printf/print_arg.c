@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 09:36:34 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/11/29 10:56:58 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/27 19:17:33 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	__ft_unsigned_putnbr__(unsigned int nb,
 {
 	if (nb >= ft_strlen(base))
 		__ft_unsigned_putnbr__(nb / ft_strlen(base), base, options);
-	ft_putchar(base[nb % ft_strlen(base)], 1, options);
+	ft_putchar(base[nb % ft_strlen(base)], options->fd, options);
 }
 
 static void	__ft_print_addr__(unsigned long addr, int first, t_options *options)
@@ -33,20 +33,20 @@ static void	__ft_print_addr__(unsigned long addr, int first, t_options *options)
 		__ft_print_addr__(addr % 16, ++first, options);
 	}
 	else
-		ft_putchar(base[addr % 16], 1, options);
+		ft_putchar(base[addr % 16], options->fd, options);
 }
 
 static void	__ft_print_convert__(t_options *options, t_argument *arg)
 {
 	if ((options->conversion == 'd' || options->conversion == 'i')
 		&& !((int)arg->arg == 0 && options->precision_value == 0))
-		ft_putnbr((int)arg->arg, 1, options);
+		ft_putnbr((int)arg->arg, options->fd, options);
 	else if (options->conversion == 's')
 		ft_putstr(arg->arg_s, options->precision_value, options);
 	else if (options->conversion == 'c')
-		ft_putchar(arg->arg_c, 1, options);
+		ft_putchar(arg->arg_c, options->fd, options);
 	else if (options->conversion == '%')
-		ft_putchar('%', 1, options);
+		ft_putchar('%', options->fd, options);
 	else if (options->conversion == 'u'
 		&& !((int)arg->arg == 0 && options->precision_value == 0))
 		__ft_unsigned_putnbr__((unsigned int)arg->arg, DECIMAL, options);
@@ -65,11 +65,11 @@ static void	__ft_print_sign__(t_options *options, t_argument *arg)
 	if (ft_is_charset(options->conversion, "diu"))
 	{
 		if (options->flag_space)
-			ft_putchar(' ', 1, options);
+			ft_putchar(' ', options->fd, options);
 		if (arg->arg < 0)
-			ft_putchar('-', 1, options);
+			ft_putchar('-', options->fd, options);
 		else if (options->flag_plus)
-			ft_putchar('+', 1, options);
+			ft_putchar('+', options->fd, options);
 	}
 	else if (ft_is_charset(options->conversion, "xX")
 		&& options->flag_hashtag && arg->arg)

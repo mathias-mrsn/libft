@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 09:36:36 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/11/29 10:39:17 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/27 19:11:43 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_print_blank(t_options *options, t_argument *arg)
 	else
 		__ft_print_blank_digit__(options, arg, &blank);
 	while (blank-- > 0)
-		ft_putchar(' ', 1, options);
+		ft_putchar(' ', options->fd, options);
 }
 
 void	ft_print_zero(t_options *options, t_argument *arg)
@@ -77,5 +77,5 @@ void	ft_print_zero(t_options *options, t_argument *arg)
 			zero = options->precision_value - options->arg_length;
 	}
 	while (zero-- > 0)
-		ft_putchar('0', 1, options);
+		ft_putchar('0', options->fd, options);
 }

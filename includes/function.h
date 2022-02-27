@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/26 14:08:40 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/02/27 19:18:02 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,7 +209,6 @@ t_boolean	__file_extention(char *file, char *extention);
 t_boolean	__add_to_file(char *filename, char *str);
 char		*__dirname(const char *path);
 char		*__basename(const char *path);
-
 
 /*
 **	CONDIRIONS
