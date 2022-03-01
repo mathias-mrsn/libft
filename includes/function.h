@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/27 19:18:02 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/03/01 17:28:41 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int			__min(int x, int y);
 int64_t		__llabs(int64_t x);
 long		__random(int len_max);
 t_boolean	__is_prime(size_t nb);
+double		__pythagore(double x1, double y1, double x2, double y2);
 
 /*
 **	CHAR
@@ -193,6 +194,7 @@ t_boolean	__strs_is_sort(char **tab);
 t_boolean	__strs_add_back(char ***strs, char *str);
 t_boolean	__strs_add_front(char ***strs, char *str);
 char		*__strs_at(char **strs, size_t at);
+size_t		__strs_maxlen(char **strs);
 
 t_boolean	__mstrs_add_back(char ***strs, char *str, size_t list_stack);
 t_boolean	__mstrs_add_front(char ***strs, char *str, size_t list_stack);
@@ -249,5 +251,33 @@ int			__get_g(int trgb);
 int			__get_b(int trgb);
 int			__create_color(unsigned char t, unsigned char r,
 				unsigned char g, unsigned char b);
+
+/*
+**	BUFFER
+*/
+
+//	WARNING : change DESTROY_BUF with bitwise operator
+
+# define BUFFER_SIZE	1024
+# define DESTROY_BUF	1
+
+typedef struct s_buffer
+{
+	int		fd;
+	char	buffer[BUFFER_SIZE];
+	size_t	index;
+}			t_buffer;
+
+typedef struct s_buf_attr
+{
+	uint32_t	flags;
+	int32_t		fd;	
+}			t_buf_attr;
+
+int			__flush_buffer(void);
+void		__destroy_buffer(void);
+t_buffer	*__init_buffer(const t_buf_attr *attr);
+void			__reset_buffer(t_buffer *buffer);
+int			__add_buffer_c(char c);
 
 #endif

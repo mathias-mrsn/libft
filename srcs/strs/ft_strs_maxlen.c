@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strs_maxlen.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 12:07:03 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/01 17:29:39 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/03/01 16:30:46 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/03/01 17:30:01 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stddef.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <limits.h>
-# include <fcntl.h>
-# include <stdint.h>
-# include <math.h>
+#define STRS_NULL 		"strs is NULL"
 
-# include "ft_printf.h"
-# include "get_next_line.h"
-# include "color.h"
-# include "define.h"
-# include "typedef.h"
-# include "function.h"
+size_t
+	__strs_maxlen(char **strs)
+{
+	size_t			idx;
+	size_t			maxlen;
 
-#endif
+	idx = 0;
+	maxlen = 0;
+	if (!strs || !(*strs))
+		return (__lib_output(__FILE__, __LINE__, STRS_NULL), 0);
+	while (strs[idx])
+	{
+		if (__strlen(strs[idx]) > maxlen)
+			maxlen = __strlen(strs[idx]);	
+		idx++;
+	}
+	return (maxlen);
+}

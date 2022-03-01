@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:03:25 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/26 16:49:31 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/03/01 17:12:20 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,20 @@
 #  define STANDARD_STACK 1
 # endif
 
+# ifndef BUFFER_STACK
+#  define BUFFER_STACK 100
+# endif
+
 # ifndef __DONT_STOCK_MEM
 #  define __DONT_STOCK_MEM 0
 # endif
 
 # ifndef __LIBFT_FAILURE_LOCATED
 #  define __LIBFT_FAILURE_LOCATED 0
+# endif
+
+# ifndef SYSCALL_ERR
+#  define SYSCALL_ERR	(-1)
 # endif
 
 /*
