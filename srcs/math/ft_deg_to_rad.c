@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_deg_to_rad.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 12:07:03 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/05 13:05:39 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/03/06 15:57:49 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/03/06 15:58:21 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stddef.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <limits.h>
-# include <fcntl.h>
-# include <stdint.h>
-# include <math.h>
-
-# include "ft_printf.h"
-# include "get_next_line.h"
-# include "color.h"
-# include "define.h"
-# include "typedef.h"
-# include "function.h"
-
-#endif
+double
+	__deg_to_rad(double ang)
+{
+	return (ang * (T_PI / 180));
+}

@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/01 17:28:41 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/03/06 15:59:28 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ long		__labs(long x);
 int			__max(int x, int y);
 int			__min(int x, int y);
 int64_t		__llabs(int64_t x);
+double		__deg_to_rad(double ang);
+double		__rad_to_deg(double pi);
 long		__random(int len_max);
 t_boolean	__is_prime(size_t nb);
 double		__pythagore(double x1, double y1, double x2, double y2);
