@@ -6,34 +6,44 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 17:32:54 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/16 13:35:30 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/03/10 12:49:12 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static uint32_t
+	__head_idx__(const char *str, const char *set)
+{
+	uint32_t	idx;
+
+	if (!str || !set)
+		return (0);
+	idx = 0;
+	while (str[idx] && __is_charset(str[idx], (char *)set))
+		idx++;
+	return (idx);
+}
+
+static uint32_t
+	__tail_idx__(const char *str, const char *set)
+{
+	uint32_t	idx;
+
+	if (!str || !set)
+		return (0);
+	idx = (uint32_t)__strlen(str);
+	while (idx-- > 0 && __is_charset(str[idx], (char *)set))
+		idx--;
+	return (idx);
+}
+
 char	*__mstrtrim(const char *s1, const char *set, size_t list_stack)
 {
-	char	*trim;
-	size_t	i;
-	size_t	j;
-	size_t	index;
+	const uint32_t	head = __head_idx__(s1, set);
+	const uint32_t	tail = __tail_idx__(s1, set);
 
-	i = 0;
 	if (!s1 || !set)
 		return (NULL);
-	j = __strlen(s1);
-	while (s1[i] && __is_charset(s1[i], (char *)set))
-		i++;
-	while (--j > i && __is_charset(s1[j], (char *)set))
-		;
-	trim = __malloc(sizeof(char) * (j - i + 1), list_stack);
-	if (!trim)
-		return (NULL);
-	j -= i - 1;
-	index = 0;
-	while (index < j)
-		trim[index++] = s1[i++];
-	trim[index] = '\0';
-	return (trim);
+	return (__mstrldup((char *)s1 + head, (tail - head) + 1, list_stack));
 }
