@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 16:30:46 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/01 17:30:01 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/03/12 14:58:18 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t
 	while (strs[idx])
 	{
 		if (__strlen(strs[idx]) > maxlen)
-			maxlen = __strlen(strs[idx]);	
+			maxlen = __strlen(strs[idx]);
 		idx++;
 	}
 	return (maxlen);

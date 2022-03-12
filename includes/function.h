@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/06 15:59:28 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/03/12 14:58:35 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -279,7 +279,7 @@ typedef struct s_buf_attr
 int			__flush_buffer(void);
 void		__destroy_buffer(void);
 t_buffer	*__init_buffer(const t_buf_attr *attr);
-void			__reset_buffer(t_buffer *buffer);
+void		__reset_buffer(t_buffer *buffer);
 int			__add_buffer_c(char c);
 
 #endif

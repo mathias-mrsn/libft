@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 16:34:10 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/01 17:29:17 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/03/12 14:57:45 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_buffer
 	*__init_buffer(const t_buf_attr *attr)
 {
 	static t_buffer	*_buffer = NULL;
-	
+
 	if (_buffer && attr && (attr->flags & DESTROY_BUF))
 	{
 		free(_buffer);
@@ -36,7 +36,7 @@ t_buffer
 void
 	__destroy_buffer(void)
 {
-	const t_buf_attr attr = {.fd = STDOUT_FILENO, .flags = DESTROY_BUF};
+	const t_buf_attr	attr = {.fd = STDOUT_FILENO, .flags = DESTROY_BUF};
 
 	__init_buffer(&attr);
 }
@@ -44,8 +44,8 @@ void
 int
 	__flush_buffer(void)
 {
-	const t_buffer *_buffer = __init_buffer(NULL);
-	
+	const t_buffer	*_buffer = __init_buffer(NULL);
+
 	if (NULL == _buffer)
 		return (__ERROR);
 	else if (_buffer->index)
@@ -61,13 +61,13 @@ void
 	__reset_buffer(t_buffer *buffer)
 {
 	buffer->index = 0;
-	__bzero(buffer->buffer, BUFFER_SIZE);	
+	__bzero(buffer->buffer, BUFFER_SIZE);
 }
 
 int
 	__add_buffer_c(char c)
 {
-	t_buffer *buffer;
+	t_buffer	*buffer;
 
 	buffer = __init_buffer(NULL);
 	if (NULL == buffer)
