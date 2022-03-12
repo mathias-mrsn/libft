@@ -6,14 +6,14 @@
 #    By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 10:02:52 by mamaurai          #+#    #+#              #
-#    Updated: 2022/01/25 16:15:15 by mamaurai         ###   ########.fr        #
+#    Updated: 2022/03/12 16:49:13 by mamaurai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = ${shell find . -name "*.c"}
 
 NAME = libft.a
-CC = gcc
+CC = clang
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 INCS = includes
@@ -68,6 +68,15 @@ clean:
 fclean: clean
 			@printf "%-15s ${_RED}${_BOLD}libft librairy${_END}...\n" "Deleting"
 			@${RM} ${NAME}
+
+show:
+			@printf "${_GREEN}%-15s${_YELLOW}${SYSTEM}${_END}\n" "SYSTEM ="
+			@printf "${_GREEN}%-15s${_YELLOW}${NAME}${_END}\n" "NAME ="
+			@printf "${_GREEN}%-15s${_YELLOW}${SRCS}${_END}\n" "SRCS ="
+			@printf "${_GREEN}%-15s${_YELLOW}${OBJS}${_END}\n" "OBJS ="
+			@printf "${_GREEN}%-15s${_YELLOW}${INCS}${_END}\n" "INCLUDES"
+			@printf "${_GREEN}%-15s${_YELLOW}${CC}${_END}\n" "CC"
+			@printf "${_GREEN}%-15s${_YELLOW}${CFLAGS}${_END}\n" "CFLAGS ="
 
 re: fclean all
 
