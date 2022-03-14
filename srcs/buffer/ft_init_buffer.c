@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_init_buffer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 12:07:03 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/14 11:29:09 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/03/14 11:10:13 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/03/14 11:10:13 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stddef.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <limits.h>
-# include <fcntl.h>
-# include <stdint.h>
-# include <math.h>
+t_buffer
+	*__init_buffer(const t_buf_attr *attr)
+{
+	static t_buffer	*_buffer = NULL;
 
-# include "ft_printf.h"
-# include "get_next_line.h"
-# include "color.h"
-# include "define.h"
-# include "typedef.h"
-# include "function.h"
-# include "buffer.h"
-
-#endif
+	if (_buffer && attr && (attr->flags & DESTROY_BUF))
+	{
+		__memdel((void **)&_buffer);
+		return (NULL);
+	}
+	else if (NULL == _buffer)
+	{
+		_buffer = __malloc(sizeof(t_buffer), __DONT_STOCK_MEM);
+		if (attr)
+			_buffer->fd = attr->fd;
+		else
+			_buffer->fd = STDOUT_FILENO;
+	}
+	return (_buffer);
+}

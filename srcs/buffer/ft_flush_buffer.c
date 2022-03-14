@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_flush_buffer.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 12:07:03 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/14 11:29:09 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/03/14 11:10:11 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/03/14 11:10:11 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stddef.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <limits.h>
-# include <fcntl.h>
-# include <stdint.h>
-# include <math.h>
+int
+	__flush_buffer(void)
+{
+	const t_buffer	*_buffer = __init_buffer(NULL);
 
-# include "ft_printf.h"
-# include "get_next_line.h"
-# include "color.h"
-# include "define.h"
-# include "typedef.h"
-# include "function.h"
-# include "buffer.h"
-
-#endif
+	if (NULL == _buffer)
+		return (SYSCALL_ERR);
+	else if (_buffer->index)
+	{
+		if (SYSCALL_ERR == write(_buffer->fd, _buffer->buffer, _buffer->index))
+			return (SYSCALL_ERR);
+	}
+	__destroy_buffer();
+	return (__SUCCESS);
+}

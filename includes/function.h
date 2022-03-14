@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/12 14:58:35 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/03/14 11:28:43 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,32 +254,5 @@ int			__get_b(int trgb);
 int			__create_color(unsigned char t, unsigned char r,
 				unsigned char g, unsigned char b);
 
-/*
-**	BUFFER
-*/
-
-//	WARNING : change DESTROY_BUF with bitwise operator
-
-# define BUFFER_SIZE	1024
-# define DESTROY_BUF	1
-
-typedef struct s_buffer
-{
-	int		fd;
-	char	buffer[BUFFER_SIZE];
-	size_t	index;
-}			t_buffer;
-
-typedef struct s_buf_attr
-{
-	uint32_t	flags;
-	int32_t		fd;	
-}			t_buf_attr;
-
-int			__flush_buffer(void);
-void		__destroy_buffer(void);
-t_buffer	*__init_buffer(const t_buf_attr *attr);
-void		__reset_buffer(t_buffer *buffer);
-int			__add_buffer_c(char c);
 
 #endif

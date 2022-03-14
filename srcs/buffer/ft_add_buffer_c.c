@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_add_buffer_c.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/05 12:07:03 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/14 11:29:09 by mamaurai         ###   ########.fr       */
+/*   Created: 2022/03/14 11:09:24 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/03/14 11:09:24 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stddef.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <limits.h>
-# include <fcntl.h>
-# include <stdint.h>
-# include <math.h>
+int
+	__add_buffer_c(char c)
+{
+	t_buffer	*buffer;
 
-# include "ft_printf.h"
-# include "get_next_line.h"
-# include "color.h"
-# include "define.h"
-# include "typedef.h"
-# include "function.h"
-# include "buffer.h"
-
-#endif
+	buffer = __init_buffer(NULL);
+	if (NULL == buffer)
+		return (SYSCALL_ERR);
+	buffer->buffer[buffer->index++] = c;
+	if (BUFFER_SIZE <= buffer->index)
+	{
+		if (SYSCALL_ERR == write(buffer->fd, buffer->buffer, buffer->index))
+			return (SYSCALL_ERR);
+		__reset_buffer();
+	}
+	return (__SUCCESS);
+}
