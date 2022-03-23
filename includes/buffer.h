@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 11:11:22 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/14 11:29:44 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/03/23 21:28:25 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 # define BUFFER_SIZE	2048
 
-enum	t_buffer_flags
+enum	e_buffer_flags
 {
 	DESTROY_BUF = 1U << 0
 };

@@ -6,13 +6,16 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:24:48 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/23 19:24:52 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/03/23 21:28:08 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#if defined(__APPLE__) && defined(__MACH__)
+#ifndef MLX_EVENTS_H
+# define MLX_EVENTS_H
 
-enum	key_events
+# if defined(__APPLE__) && defined(__MACH__)
+
+enum	e_key_events
 {
 	KEY_A = 0,
 	KEY_B = 11,
@@ -40,7 +43,6 @@ enum	key_events
 	KEY_X = 7,
 	KEY_Y = 16,
 	KEY_Z = 6,
-
 	KEY_0 = 29,
 	KEY_1 = 18,
 	KEY_2 = 19,
@@ -51,7 +53,6 @@ enum	key_events
 	KEY_7 = 26,
 	KEY_8 = 28,
 	KEY_9 = 25,
-
 	KEY_MINUS = 27,
 	KEY_MAJ = 24,
 	KEY_BRACKET_OPEN = 33,
@@ -65,21 +66,19 @@ enum	key_events
 	KEY_ENTER = 36,
 	KEY_BACKSPACE = 51,
 	KEY_SPACE = 49,
-
 	KEY_TAB = 48,
 	KEY_SHIFT = 257,
 	KEY_CONTROL = 256,
 	KEY_ESC = 53,
-
 	KEY_UP = 126,
 	KEY_LEFT = 123,
 	KEY_RIGHT = 124,
 	KEY_DOWN = 125,
 };
 
-#else
+# else
 
-enum	key_events
+enum	e_key_events
 {
 	KEY_A = 0,
 	KEY_B = 11,
@@ -107,7 +106,6 @@ enum	key_events
 	KEY_X = 7,
 	KEY_Y = 16,
 	KEY_Z = 6,
-
 	KEY_0 = 29,
 	KEY_1 = 18,
 	KEY_2 = 19,
@@ -118,7 +116,6 @@ enum	key_events
 	KEY_7 = 26,
 	KEY_8 = 28,
 	KEY_9 = 25,
-
 	KEY_MINUS = 27,
 	KEY_MAJ = 24,
 	KEY_BRACKET_OPEN = 33,
@@ -132,16 +129,27 @@ enum	key_events
 	KEY_ENTER = 36,
 	KEY_BACKSPACE = 51,
 	KEY_SPACE = 49,
-
 	KEY_TAB = 48,
 	KEY_SHIFT = 257,
 	KEY_CONTROL = 256,
 	KEY_ESC = 53,
-
 	KEY_UP = 126,
 	KEY_LEFT = 123,
 	KEY_RIGHT = 124,
 	KEY_DOWN = 125,
+};
+
+# endif 
+
+enum	e_mlx_events
+{
+	KEYDOWN_EVENT = 2,
+	KEYUP_EVENT = 3,
+	MOUSEDOWN_EVENT = 4,
+	MOUSEUP_EVENT = 5,
+	MOUSEMOVE_EVENT = 6,
+	EXPOSE_EVENT = 12,
+	DESTROY_EVENT = 17
 };
 
 #endif

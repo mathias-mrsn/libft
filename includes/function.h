@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/23 19:24:21 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/03/23 21:28:47 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,6 +253,5 @@ int			__get_g(int trgb);
 int			__get_b(int trgb);
 int			__create_color(unsigned char t, unsigned char r,
 				unsigned char g, unsigned char b);
-
 
 #endif

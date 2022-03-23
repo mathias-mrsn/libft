@@ -24,6 +24,7 @@
 
 # include "ft_printf.h"
 # include "get_next_line.h"
+# include "mlx_events.h"
 # include "color.h"
 # include "define.h"
 # include "typedef.h"
