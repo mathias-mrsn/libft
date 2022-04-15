@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_basename.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathias.mrsn <mathias.mrsn@student.42.f    +#+  +:+       +#+        */
+/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 12:52:13 by mathias.mrs       #+#    #+#             */
-/*   Updated: 2022/02/26 12:58:49 by mathias.mrs      ###   ########.fr       */
+/*   Created: 2022/04/13 21:20:48 by mamaurai          #+#    #+#             */
+/*   Updated: 2022/04/13 21:20:50 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:47:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2021/12/05 11:47:56 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/04/14 16:11:58 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 void	__bzero(void *b, size_t len)
 {
-	unsigned char	*str;
-
-	str = (unsigned char *)b;
-	while (len--)
-		str[len] = 0;
+	__memcpy(b, 0, len);
 }
