@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add_buffer.c                                    :+:      :+:    :+:   */
+/*   ft_add_buffer_s.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 16:34:10 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/14 09:31:20 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/04/15 11:37:54 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ int
 		__memcpy(buffer->buffer + buffer->index, str, _len);
 		buffer->index += _len;
 	}
-	return (__SUCCESS);
+	return (SUCCESS);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mstrs_add_front.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 09:35:28 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 12:51:38 by mathias          ###   ########.fr       */
+/*   Updated: 2022/04/15 11:38:06 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ t_boolean
 		return (__lib_output(__FILE__, __LINE__, STR_NULL), __ERROR);
 	new = (char **)__malloc(sizeof(char *) * (size + 2), list_stack);
 	if (NULL == new)
-		return (__FAILURE);
+		return (FAILURE);
 	new[0] = str;
 	__memmove(&new[1], old, size * 8);
 	new[size + 1] = NULL;
 	(*strs) = new;
-	return (__SUCCESS);
+	return (SUCCESS);
 }

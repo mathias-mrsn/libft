@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 21:32:07 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/28 21:47:21 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/04/15 11:38:06 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ t_boolean
 	char	buffer[BUFFER_READ];
 
 	if (__FALSE == __file_exist(filename))
-		return (__FAILURE);
+		return (FAILURE);
 	fd = open(filename, O_WRONLY);
 	if (-1 == fd)
-		return (__FAILURE);
+		return (FAILURE);
 	while (1)
 	{
 		len = read(fd, buffer, BUFFER_READ);
@@ -32,5 +32,5 @@ t_boolean
 		write(fd_output, buffer, len);
 	}
 	close(fd);
-	return (__SUCCESS);
+	return (SUCCESS);
 }

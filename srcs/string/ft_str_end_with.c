@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 10:51:13 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/22 13:18:36 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/04/15 11:38:06 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ int
 		index2--;
 	}
 	if (index2 == 0 && str[0] == to_find[0])
-		return (__SUCCESS);
-	return (__FAILURE);
+		return (SUCCESS);
+	return (FAILURE);
 }

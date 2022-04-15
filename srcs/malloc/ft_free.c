@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:48:10 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/02/20 00:03:39 by mathias          ###   ########.fr       */
+/*   Updated: 2022/04/15 11:38:06 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int8_t	__free(void	*addr)
 
 	stack = __is_in_my_memory(addr);
 	if (__FALSE == stack)
-		return (free(addr), __FAILURE);
+		return (free(addr), FAILURE);
 	__list_remove(__malloc(0, stack), addr);
-	return (__SUCCESS);
+	return (SUCCESS);
 }

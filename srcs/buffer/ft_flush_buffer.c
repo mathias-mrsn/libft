@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 11:10:11 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/14 11:10:11 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/04/15 11:37:54 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int
 			return (SYSCALL_ERR);
 	}
 	__destroy_buffer();
-	return (__SUCCESS);
+	return (SUCCESS);
 }

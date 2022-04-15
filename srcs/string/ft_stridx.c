@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 10:48:49 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/19 14:56:16 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/04/15 11:37:54 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int64_t
 		return (__ERROR);
 	while (str[i])
 	{
-		if (__SUCCESS == __is_charset(str[i], charset))
+		if (SUCCESS == __is_charset(str[i], charset))
 			return (i);
 		i += 1;
 	}

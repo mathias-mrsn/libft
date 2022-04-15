@@ -6,11 +6,11 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:48:41 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/04/14 16:20:59 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/04/15 14:17:16 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_malloc.h"
+#include "libft.h"
 
 // void	*__malloc(size_t count, size_t	list_nbr)
 // {
@@ -32,74 +32,131 @@
 // 	return (ret);
 // }
 
+// static int
+// _malloc_failed
+// (void)
+// {
+	
+// }
+
 static t_gc_block*
-_b
-(void)
+_create_block
+(uint32_t id, t_gc_block* next, t_gc_block* prev)
+{
+	t_gc_block*	new = NULL;
+
+	new = __calloc(sizeof(t_gc_block), 1);
+	if (!new)
+		return (NULL);
+	new->_block_id = id;
+	new->_next = next;
+	new->_prev = prev;
+	return (new);
+}
+
+static t_gc_block*
+_init_blocks
+(int64_t flag)
 {
 	static t_gc_block*	blocks = NULL;
+
+	if (flag & NONE)
+		return (blocks);
+	if (flag & INIT_BLOCK && blocks == NULL)
+	{
+		LOG("first block created");
+		blocks = __calloc(sizeof(t_gc_block), 1);
+		if (blocks == NULL)
+			return (NULL);
+	}
+	if (flag & ADD_BLOCK)
+	{
+		LOG("new block added");
+		blocks = _create_block((blocks->_block_id + 1), blocks, NULL);
+		if (blocks == NULL)
+			return (NULL);
+	}
+	if (flag & DESTROY_BLOCK)
+	{
+		LOG("block destroyed");
+		t_gc_block*	tmp = blocks;
+		blocks = ((blocks->_next) ? blocks->_next : NULL);
+		__memdel((void**)&tmp);
+	}
 	return (blocks);
 }
 
-static int
-_add_block_front
-(t_gc_block** blocks)
+//Inverser affichage + logique
+//Ameliorer l'affichage
+
+int
+__gc_show_memory
+(void)
 {
-	t_gc_block*	new_block;
+	t_gc_block*			blocks = _init_blocks(NONE);
 	
-	if (blocks == NULL)
-		return (SYSCALL_ERR);
-	uint32_t			last_id = (*blocks)->_block_id;
-	new_block = __calloc(sizeof(t_gc_block), 1);
-	if (new_block == NULL)
-		return (SYSCALL_ERR);
-	__bzero((void *)new_block, sizeof(t_gc_block));
-	new_block->_block_id = last_id + 1;
-	
-	
-	
+	for(; blocks; blocks = blocks->_next)
+	{
+		for(uint32_t i = 0; i < BLOCK_SIZE; i++)
+		{
+			if (blocks->_memory[i] != NULL)
+				__printf("x");
+			else
+				__printf("o");
+		}
+		__printf(" max_ptr = %p - min_ptr = %p", blocks->_ptr_max, blocks->_ptr_min);
+		__printf("\n");
+	}
+	return (0);
 }
 
-// void*
-// __gc_free
-// ()
+void
+__gc_free
+(void* __ptr)
+{
+	t_gc_block*			blocks = _init_blocks(INIT_BLOCK);	
+}
+
+
 
 void*
 __gc_alloc
 (size_t __size)
 {
-	t_gc_block*	blocks = _b();
+	t_gc_block*			blocks = _init_blocks(INIT_BLOCK);
 	void*				ptr = NULL;
 
-	if (__size > MAX_MALLOC_SIZE && __size < MIN_MALLOC_SIZE)
+	if (__size > MAX_MALLOC_SIZE || __size < MIN_MALLOC_SIZE)
 	{
-		ERROR("invalid malloc size");
+		LOG("invalid malloc size");
 		return (NULL);
 	}
-	if (blocks == NULL || blocks->_index == BLOCK_SIZE)
+	if (blocks->_index == BLOCK_SIZE)
 	{
-		if ((blocks != NULL && blocks->_block_id + 1 >= MAX_BLOCKS) || blocks == NULL && MAX_BLOCKS == 0)
+		
+		if ((blocks != NULL && blocks->_block_id + 1 >= MAX_BLOCKS))
 		{
-			ERROR("GC has too many memory block");
+			LOG("GC has too many memory block");
 			return (NULL);
 		}
-		else if (SYSCALL_ERR == _add_block_front(&blocks))
+		else if (NULL == _init_blocks(ADD_BLOCK))
 		{
-			ERROR("add block failed");
+			LOG("add block failed");
 			return (NULL);
 		}
 	}
 	ptr = __calloc(__size, 1);
 	if (ptr == NULL)
 	{
-		ERROR("malloc failed");
+		LOG("malloc failed");
 		return (NULL);
 	}
 	blocks->_memory[blocks->_index] = ptr;
 	blocks->_index += 1;
-	if ((blocks->_flags & FRAGMENTATION) == 0)
+	if ((GARBAGE_SETTINGS & FRAGMENTATION) == 0)
 	{
 		if (ptr > blocks->_ptr_max)	{blocks->_ptr_max = ptr;}
-		if (ptr < blocks->_ptr_min)	{blocks->_ptr_min = ptr;}
+		if (ptr < blocks->_ptr_min || blocks->_ptr_min == 0)	{blocks->_ptr_min = ptr;}
 	}
 	return (ptr);
 }

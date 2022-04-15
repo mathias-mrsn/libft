@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 11:15:01 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/01/20 11:17:23 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/04/15 11:38:06 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ size_t
 	res = 0;
 	index = 0;
 	if (NULL == str)
-		return (__FAILURE);
+		return (FAILURE);
 	while (str[index])
 	{
-		if (__FAILURE == __is_charset(str[index], charset))
+		if (FAILURE == __is_charset(str[index], charset))
 			res += 1;
 		index += 1;
 	}

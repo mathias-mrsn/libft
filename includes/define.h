@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:03:25 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/06 15:58:56 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/04/15 11:38:06 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@
 #  define __STDOUT 	1
 # endif
 
-# ifndef __FAILURE
-#  define __FAILURE 	1
+# ifndef FAILURE
+#  define FAILURE 	1
 # endif
 
-# ifndef __SUCCESS
-#  define __SUCCESS 	0
+# ifndef SUCCESS
+#  define SUCCESS 	0
 # endif
 
 # ifndef __ERROR

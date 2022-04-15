@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_add_to_file.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathias <mathias@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 19:00:53 by mathias           #+#    #+#             */
-/*   Updated: 2022/02/20 11:30:39 by mathias          ###   ########.fr       */
+/*   Updated: 2022/04/15 11:38:06 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ t_boolean
 	int	fd;
 
 	if (NULL == str || NULL == filename)
-		return (__lib_output(__FILE__, __LINE__, STR_NULL), __FAILURE);
+		return (__lib_output(__FILE__, __LINE__, STR_NULL), FAILURE);
 	if (__FALSE == __file_exist(filename))
-		return (__FAILURE);
+		return (FAILURE);
 	fd = __file_append(filename);
 	if (OPEN_ERROR == fd)
-		return (__FAILURE);
+		return (FAILURE);
 	write(fd, str, __strlen(str));
-	return (__SUCCESS);
+	return (SUCCESS);
 }
