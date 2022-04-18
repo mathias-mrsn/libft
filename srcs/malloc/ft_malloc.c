@@ -6,157 +6,191 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 11:48:41 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/04/15 14:17:16 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/04/18 18:46:23 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// void	*__malloc(size_t count, size_t	list_nbr)
-// {
-// 	static t_list	*lst[MALLOC_LIST_SIZE];
-// 	static size_t	id_g = 0;
-// 	void			*ret;
-
-// 	ret = NULL;
-// 	if (list_nbr > MALLOC_LIST_SIZE)
-// 		return (NULL);
-// 	if (0 == count)
-// 		return (&lst[list_nbr]);
-// 	if (count)
-// 	{
-// 		ret = __calloc(count, 1);
-// 		if (NULL != ret && list_nbr > 0)
-// 			__lstadd_front(&lst[list_nbr], __lstnew(ret, ++id_g));
-// 	}
-// 	return (ret);
-// }
-
-// static int
-// _malloc_failed
-// (void)
-// {
-	
-// }
-
-static t_gc_block*
-_create_block
-(uint32_t id, t_gc_block* next, t_gc_block* prev)
+void	*__malloc(size_t count, size_t	list_nbr)
 {
-	t_gc_block*	new = NULL;
+	static t_list	*lst[MALLOC_LIST_SIZE];
+	static size_t	id_g = 0;
+	void			*ret;
 
-	new = __calloc(sizeof(t_gc_block), 1);
-	if (!new)
+	ret = NULL;
+	if (list_nbr > MALLOC_LIST_SIZE)
 		return (NULL);
-	new->_block_id = id;
-	new->_next = next;
-	new->_prev = prev;
-	return (new);
-}
-
-static t_gc_block*
-_init_blocks
-(int64_t flag)
-{
-	static t_gc_block*	blocks = NULL;
-
-	if (flag & NONE)
-		return (blocks);
-	if (flag & INIT_BLOCK && blocks == NULL)
+	if (0 == count)
+		return (&lst[list_nbr]);
+	if (count)
 	{
-		LOG("first block created");
-		blocks = __calloc(sizeof(t_gc_block), 1);
-		if (blocks == NULL)
-			return (NULL);
+		ret = __calloc(count, 1);
+		if (NULL != ret && list_nbr > 0)
+			__lstadd_front(&lst[list_nbr], __lstnew(ret, ++id_g));
 	}
-	if (flag & ADD_BLOCK)
-	{
-		LOG("new block added");
-		blocks = _create_block((blocks->_block_id + 1), blocks, NULL);
-		if (blocks == NULL)
-			return (NULL);
-	}
-	if (flag & DESTROY_BLOCK)
-	{
-		LOG("block destroyed");
-		t_gc_block*	tmp = blocks;
-		blocks = ((blocks->_next) ? blocks->_next : NULL);
-		__memdel((void**)&tmp);
-	}
-	return (blocks);
-}
-
-//Inverser affichage + logique
-//Ameliorer l'affichage
-
-int
-__gc_show_memory
-(void)
-{
-	t_gc_block*			blocks = _init_blocks(NONE);
-	
-	for(; blocks; blocks = blocks->_next)
-	{
-		for(uint32_t i = 0; i < BLOCK_SIZE; i++)
-		{
-			if (blocks->_memory[i] != NULL)
-				__printf("x");
-			else
-				__printf("o");
-		}
-		__printf(" max_ptr = %p - min_ptr = %p", blocks->_ptr_max, blocks->_ptr_min);
-		__printf("\n");
-	}
-	return (0);
+	return (ret);
 }
 
 void
-__gc_free
-(void* __ptr)
+	__clean_all(void)
 {
-	t_gc_block*			blocks = _init_blocks(INIT_BLOCK);	
+	size_t	idx;
+
+	idx = 0;
+	while (idx < MALLOC_LIST_SIZE)
+	{
+		__clean(idx);
+		idx += 1;
+	}
 }
 
-
-
-void*
-__gc_alloc
-(size_t __size)
+void	__clean(size_t	list_nbr)
 {
-	t_gc_block*			blocks = _init_blocks(INIT_BLOCK);
-	void*				ptr = NULL;
+	if (list_nbr > MALLOC_LIST_SIZE)
+		return ;
+	__lstclear(__malloc(0, list_nbr), free);
+}
 
-	if (__size > MAX_MALLOC_SIZE || __size < MIN_MALLOC_SIZE)
+int8_t	__free(void	*addr)
+{
+	size_t	stack;
+
+	stack = __is_in_my_memory(addr);
+	if (__FALSE == stack)
+		return (free(addr), FAILURE);
+	__list_remove(__malloc(0, stack), addr);
+	return (SUCCESS);
+}
+
+size_t
+	__is_in_my_memory(void *ptr)
+{
+	size_t	idx;
+
+	idx = 0;
+	while (idx < MALLOC_LIST_SIZE)
 	{
-		LOG("invalid malloc size");
-		return (NULL);
+		if (__TRUE == __is_in_stack(ptr, idx))
+			return (idx);
+		idx += 1;
 	}
-	if (blocks->_index == BLOCK_SIZE)
+	return (__FALSE);
+}
+
+t_boolean
+	__is_in_stack(void *ptr, size_t list_stack)
+{
+	t_list	**head;
+	t_list	*tmp;
+
+	tmp = NULL;
+	head = __malloc(0, list_stack);
+	tmp = (*head);
+	if (NULL == ptr || 0 == list_stack)
+		return (__FALSE);
+	while (tmp)
 	{
-		
-		if ((blocks != NULL && blocks->_block_id + 1 >= MAX_BLOCKS))
+		if (ptr == tmp->content)
+			return (__TRUE);
+		tmp = tmp->next;
+	}
+	return (__FALSE);
+}
+
+size_t
+	__mem_stack_len(size_t list_stack)
+{
+	t_list	**head;
+
+	head = __malloc(0, list_stack);
+	return (__lstsize((*head)));
+}
+
+static void
+	__print_stacks_len__(void)
+{
+	int		idx;
+	size_t	len;
+	int		nbr_stack_filled;
+
+	nbr_stack_filled = 0;
+	idx = 0;
+	len = 0;
+	__printf("\n\tSTACK VISUALIZER\t\t\n\n");
+	while (idx < MALLOC_LIST_SIZE)
+	{
+		len = __mem_stack_len(idx);
+		__printf("LIST N.%-3d : ", idx);
+		if (0 == len)
+			__printf("%s %-10d%s", __YELLOW, (int)len, __RESET);
+		else
+			__printf("%s %-10d%s", __BHGREEN, (int)len, __RESET);
+		if (3 == (idx % 4))
+			__putchar('\n', 1);
+		if (len > 0)
+			nbr_stack_filled++;
+		idx++;
+	}
+	__printf("\n\t%d STACK FILLED\n\n", nbr_stack_filled);
+}
+
+static void
+	__print_stack_elems__(int nbr)
+{
+	t_list	**head;
+	t_list	*tmp;
+
+	tmp = NULL;
+	head = __malloc(0, nbr);
+	tmp = (*head);
+	if (0 == __mem_stack_len(nbr))
+	{
+		__printf("\n\tSTACK N.%d : IS EMPTY\n\n");
+		return ;
+	}
+	__printf("\n\tSTACK N.%d :\n\n", nbr);
+	while (tmp)
+	{
+		__printf("ID = %11d | ADDRESS ==> %11p\n", (int)tmp->id, tmp->content);
+		tmp = tmp->next;
+	}
+	__printf("\tEND OF THE STACK\n");
+}
+
+static void
+	__print_memory_error__(void)
+{
+	__putstr("print_memory: invalid stack number\n", STDERR_FILENO);
+	__putstr("(exit - leave print_memory", 2);
+	__putstr(" / reload - reload stack visualizer)\n", 2);
+}
+
+void
+	__print_memory(void)
+{
+	char	*str;
+
+	str = NULL;
+	__print_stacks_len__();
+	while (1)
+	{
+		__printf("Choose a stack to print > ");
+		str = __gnl(0);
+		if (NULL == str)
+			return ;
+		if (0 == __strcmp(str, "exit"))
 		{
-			LOG("GC has too many memory block");
-			return (NULL);
+			free(str);
+			break ;
 		}
-		else if (NULL == _init_blocks(ADD_BLOCK))
-		{
-			LOG("add block failed");
-			return (NULL);
-		}
+		else if (0 == __strcmp(str, "reload"))
+			__print_stacks_len__();
+		else if (0 != __strcmp(str, "") && __TRUE == __str_is(str, __IS_DIGIT)
+			&& __strlen(str) < 11 && __atoi(str) < 128)
+			__print_stack_elems__(__atoi(str));
+		else if (0 != __strcmp(str, ""))
+			__print_memory_error__();
+		free(str);
 	}
-	ptr = __calloc(__size, 1);
-	if (ptr == NULL)
-	{
-		LOG("malloc failed");
-		return (NULL);
-	}
-	blocks->_memory[blocks->_index] = ptr;
-	blocks->_index += 1;
-	if ((GARBAGE_SETTINGS & FRAGMENTATION) == 0)
-	{
-		if (ptr > blocks->_ptr_max)	{blocks->_ptr_max = ptr;}
-		if (ptr < blocks->_ptr_min || blocks->_ptr_min == 0)	{blocks->_ptr_min = ptr;}
-	}
-	return (ptr);
 }

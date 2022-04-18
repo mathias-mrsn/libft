@@ -6,7 +6,7 @@
 /*   By: mamaurai <mamaurai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 14:24:55 by mamaurai          #+#    #+#             */
-/*   Updated: 2022/03/23 21:28:47 by mamaurai         ###   ########.fr       */
+/*   Updated: 2022/04/18 18:43:24 by mamaurai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,18 +73,6 @@ void		__lst_reverse(t_list *begin_list);
 void		__lst_merge(t_list **begin_list1, t_list *begin_list2);
 void		__lst_sort(t_list **begin_list, int (*cmp)());
 
-/*
-**	MALLOC
-*/
-
-size_t		__mem_stack_len(size_t list_stack);
-void		__clean(size_t list_nbr);
-int8_t		__free(void	*addr);
-void		*__malloc(size_t count, size_t list_nbr);
-void		__clean_all(void);
-void		__print_memory(void);
-t_boolean	__is_in_stack(void *ptr, size_t list_stack);
-size_t		__is_in_my_memory(void *ptr);
 
 /*
 **	MEMORY
